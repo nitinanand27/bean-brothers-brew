@@ -199,7 +199,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/pexels-photo-29977.jpg) no-repeat bottom center scroll;
+    background: url(img/pexels-photo-29977.jpg) no-repeat bottom center scroll;
     background-color: #000;
     background-size: cover;
 }
@@ -265,7 +265,7 @@ a:focus {
     height: 100%;
     padding: 150px 0;
     color: #fff;
-    background: url(../img/restaurant-red-beans-coffee.jpg) no-repeat center center scroll;
+    background: url(img/restaurant-red-beans-coffee.jpg) no-repeat center center scroll;
     background-color: #000;
     background-size: cover;
 }
@@ -278,7 +278,7 @@ a:focus {
     width: 100%;
     padding: 70px 0;
     color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/pexels-makingBeans.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/pexels-makingBeans.jpg);
     background-color: #000;
     background-size: cover;
 }
