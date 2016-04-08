@@ -22,7 +22,7 @@ namespace Mvcgrundprojekt.Controllers
             else
             {
                 var searchResult = (from x in (List<ProductModel>)Session["productList"]
-                                    where x.ProductName == search
+                                    where x.ProductName == search || x.Description.Contains(search) || x.ProductCountry == search || x.ProductType == search
                                     select x).ToList();
                 return View(searchResult);
             }
@@ -61,6 +61,9 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult Search(string search)
         {
+            //sökfunktionen
+            //söker efter en produkt med samma namn som det man skickade in
+            //skall göras bättre
             var searchResult = (from x in (List<ProductModel>)Session["productList"]
                                 where x.ProductName == search
                                 select x).ToList();
