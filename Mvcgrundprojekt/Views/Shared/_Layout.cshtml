@@ -12,7 +12,11 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Javascript filerna -->
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+
+    <!-- Hämtade Fonts, kan hämta nya enkelt -->
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -25,7 +29,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <!-- Förslag att göra en liten kaffekopp ikon här, som logotyp -->
                 </button>
-                <a class="navbar-brand page-scroll" href="~/Home/Index">
+                <a class="navbar-brand page-scroll" href="~/Home/Index"> <!-- Länk till förstasidan -->
                     <span class="light">Brew</span> Brothers
                 </a>
 
@@ -46,10 +50,7 @@
                         <a class="page-scroll" href="~/Product/Index">Webshop</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="~/Home/Index">Contact</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="~/Home/Index">Dropdown Kundvagn</a>
+                        <a class="page-scroll" href="#contact">Contact</a>
                     </li>
 
                     <!-- ------------- Dropdown shoppingcart ----------------------- -->

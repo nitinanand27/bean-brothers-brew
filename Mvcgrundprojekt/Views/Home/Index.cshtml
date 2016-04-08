@@ -41,8 +41,6 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Bean Brothers Brew</h1>
                         <!-- En knapp där vi kan göra om och hänvisa dit vi vill. Eventuellt ha 2-3 knappar, just nu är den anchor i "about". -->
-                        <a href="#page-top" id="intro-button" class="btn btn-default btn-lg">@Session["loggedInMessage"] </a><br><br>
-                        <!-- <p class="intro-text">Good coffee from three famous brothers who lives in Gothenburg. So lean back, drink, relax and enjoy!</p> -->
                         <form action="/LogIn/Index" method="post" class="form-inline">
                             <div class="form-group">
                                 <input class="form-control" name="email" placeholder="Email" />
@@ -50,7 +48,10 @@
                             </div>
 
                             <button type="submit" class="btn btn-default">Login</button>
-                        </form>
+                        </form><br><br>
+                        <a href="#page-top" id="intro-button" class="btn btn-default btn-lg">@Session["loggedInMessage"] </a>
+                        <!-- <p class="intro-text">Good coffee from three famous brothers who lives in Gothenburg. So lean back, drink, relax and enjoy!</p> -->
+                        
                     </div>
                 </div>
                 <!-- /.containern slutar här nedanför. Förändringar ska ske inom den. -->
@@ -104,25 +105,6 @@
                         <a href="https://yh.pingpong.se/login/processlogin?targeturl=%2FstartPage.do" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Hermods</span></a>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Kundvagn -->
-
-    <section id="kundvagn" class="content-section text-center">
-        <div class="kundvagn-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Shop at Bean Brothers brews</h2>
-                    <p class="shop-text">Vad vill du köpa? Kom igen, köp något, köp något!!!!!! </p>
-                    <p class="shop-text">Vad vill du köpa? Kom igen, köp något, köp något!!!!!! </p>
-                    <p class="shop-text">Vad vill du köpa? Kom igen, köp något, köp något!!!!!! </p>
-                    <p class="shop-text">Vad vill du köpa? Kom igen, köp något, köp något!!!!!! </p>
-                    <p class="shop-text">Vad vill du köpa? Kom igen, köp något, köp något!!!!!! </p>
-                    <p class="shop-text">Vad vill du köpa? Kom igen, köp något, köp något!!!!!! </p>
-                    <p class="shop-text">Vad vill du köpa? Kom igen, köp något, köp något!!!!!! </p>
-                </div>
             </div>
         </div>
     </section>

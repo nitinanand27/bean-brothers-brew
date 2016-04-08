@@ -9,21 +9,12 @@
 /* Innehåll */
 /* ------------------------------------------------------ */
 
-.webshop-body {
-    padding-top: 3%;
-    width: 100%;
-    height: 100%;
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: black;
-    color: #fff;
-}
-
 body {
     width: 100%;
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #fff;
-    background-color: #fff;
+    color: #ffffff;
+    background-color: #ffffff;
 }
 
 html {
@@ -32,11 +23,11 @@ html {
 }
 
 .shop-text {
-    color: #fff;
+    color: #ffffff;
 }
 
 p {
-    color: #000;
+    color: #000000;
     margin: 0 0 25px;
     font-size: 18px;
     line-height: 1.5;
@@ -118,7 +109,7 @@ a:focus {
     border-bottom: 1px solid rgba(255,255,255,.3);
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: #000;
+    background-color: #000000;
 }
 
 .navbar-custom .navbar-brand {
@@ -132,7 +123,7 @@ a:focus {
 .navbar-custom .navbar-brand .navbar-toggle {
     padding: 4px 6px;
     font-size: 16px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .navbar-custom .navbar-brand .navbar-toggle:focus,
@@ -141,7 +132,7 @@ a:focus {
 }
 
 .navbar-custom a {
-    color: #fff;
+    color: #ffffff;
 }
 
 .navbar-custom .nav li a {
@@ -171,7 +162,7 @@ a:focus {
 }
 
 .navbar-custom .nav li.active a:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 /* ----------------------------------------------------------------  */
@@ -193,7 +184,7 @@ a:focus {
     .navbar-custom.top-nav-collapse {
         padding: 0;
         border-bottom: 1px solid rgba(255,255,255,.3);
-        background: #000;
+        background: #000000;
     }
 }
 
@@ -207,9 +198,9 @@ a:focus {
     height: auto;
     padding: 100px 0;
     text-align: center;
-    color: #fff;
+    color: #ffffff;
     background: url(img/pexels-photo-29977.jpg) no-repeat bottom center scroll;
-    background-color: #000;
+    background-color: #000000;
     background-size: cover;
 }
 
@@ -249,6 +240,31 @@ a:focus {
 }
 
 /* ------------------------------------------------------ */
+/* Section Webshop  */
+/* ------------------------------------------------------ */
+
+.webshop-body {
+    padding-top: 3%;
+    width: 100%;
+    height: 100%;
+    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: black;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.webshop-section {
+    width: 100%;
+    height: 100%;
+    padding: 150px 0;
+    color: #ffffff;
+    background: url(img/coffee-cup-working-happy.jpg) no-repeat center center scroll;
+    background-color: #000000;
+    background-size: cover;
+}
+
+
+/* ------------------------------------------------------ */
 /* Section Contact = Innehållet på sections */
 /* ------------------------------------------------------ */
 
@@ -273,22 +289,9 @@ a:focus {
     width: 100%;
     height: 100%;
     padding: 150px 0;
-    color: #fff;
+    color: #ffffff;
     background: url(img/restaurant-red-beans-coffee.jpg) no-repeat center center scroll;
-    background-color: #000;
-    background-size: cover;
-}
-
-/* ------------------------------------------------------ */
-/* Section kundvagn */
-/* ------------------------------------------------------ */
-
-.kundvagn-section {
-    width: 100%;
-    padding: 70px 0;
-    color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/pexels-makingBeans.jpg);
-    background-color: #000;
+    background-color: #000000;
     background-size: cover;
 }
 
@@ -300,6 +303,7 @@ a:focus {
 
 #intro-button {
     margin-bottom: 25%;
+    margin-right: 50px;
 }
 
 .btn {
@@ -320,7 +324,7 @@ a:focus {
 .btn-default:focus {
     border: 1px solid #C15A2D;
     outline: 0;
-    color: #000;
+    color: #000000;
     background-color: #C15A2D;
 }
 
