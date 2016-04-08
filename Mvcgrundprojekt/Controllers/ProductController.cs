@@ -10,12 +10,23 @@ namespace Mvcgrundprojekt.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
+            if (search == null)
+            {
             //Denna metoden skapar en lista av alla produkter som finns i Session["productList"] och returnerar den till view:n
             var productList = (from x in (List<ProductModel>)Session["productList"]
                                select x).ToList();
             return View(productList);
+            }
+            else
+            {
+                var searchResult = (from x in (List<ProductModel>)Session["productList"]
+                                    where x.ProductName == search || x.Description.Contains(search) || x.ProductCountry == search || x.ProductType == search
+                                    select x).ToList();
+                return View(searchResult);
+            }
+
         }
         public ActionResult Edit(ProductModel input)
         {
@@ -48,9 +59,15 @@ namespace Mvcgrundprojekt.Controllers
 
             return View();
         }
-        public ActionResult Search()
+        public ActionResult Search(string search)
         {
-            return View();
+            //sökfunktionen
+            //söker efter en produkt med samma namn som det man skickade in
+            //skall göras bättre
+            var searchResult = (from x in (List<ProductModel>)Session["productList"]
+                                where x.ProductName == search
+                                select x).ToList();
+            return View(searchResult);
         }
         public ActionResult Delete(ProductModel input)
         {

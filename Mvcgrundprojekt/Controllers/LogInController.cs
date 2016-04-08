@@ -21,19 +21,19 @@ namespace Mvcgrundprojekt.Controllers
             Session["shoppingCart"] = clearList;
             return Redirect("/Home");
         }
-        public ActionResult Index(UserModel input)
+        public ActionResult Index(string email, string password)
         {
             if ((bool)Session["userLoggedIn"])
             {
-               return Redirect("/home/Index");
+                return Redirect("/home/Index");
             }
             //Kollar om det kommer nånting från view:n         
-            if (input.Email != null && input.Password != null)
+            if (email != null && password != null)
             {
                 //hämtar listan med användare
                 var lista = (List<UserModel>)Session["userList"];
-                var password = input.Password;
-                var email = input.Email;
+                //var password = input.Password;
+                //var email = input.Email;
                 //kollar om användaren/lösenordet finns som en match i listan med användare
                 foreach (var users in lista)
                 {
@@ -42,12 +42,12 @@ namespace Mvcgrundprojekt.Controllers
                         //Loggar in användaren om det blir en match
                         Session["loggedInMessage"] = "logged in";
                         Session["userLoggedIn"] = true;
-                        Session["userName"] = input.Email;
+                        Session["userName"] = email;
                         //Om den som loggar in är admin 
                         if (users.Admin)
                         {
                             Session["admin"] = true;
-                        }                        
+                        }
                     }
                 }
                 return View();
@@ -57,7 +57,7 @@ namespace Mvcgrundprojekt.Controllers
                 return View();
             }
 
-            
+
         }
     }
 }

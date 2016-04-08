@@ -83,7 +83,7 @@ namespace Mvcgrundprojekt.Models
                     Password = "123",
                     Email = "patteee@gmail.com",
                     Address = "Strandvägen 40 31145 Falkenberg",
-                    Personnumber = "860611",
+                    Personnumber = "8606114679",
                     PhoneNumber = "0709695196",
                     Admin = true
                 }

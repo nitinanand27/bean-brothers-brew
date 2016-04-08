@@ -12,10 +12,12 @@ namespace Mvcgrundprojekt.Controllers
         // GET: ShoppingCart
         public ActionResult Index ()
         {
+            //är man inte inloggad så skickas man tillbakatill loginsidan
             if (!(bool)Session["userLoggedIn"])
             {
                 return Redirect("/login/index");
             }
+            //eller om man går till sidan utan att skickat med nånting, typ för att kolla vad som finns i det
             var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
             return View(shoppingCartList);
         }
@@ -35,11 +37,12 @@ namespace Mvcgrundprojekt.Controllers
             {
                 return View(shoppingCartList);
             }
-            //hämta produktlistan
+            //hämta produktlistan till en array så att productList[0] alltid är den produkten man får info om
+            //
             var productList = (from x in (List<ProductModel>)Session["productList"]
                                where x.ProductID == inputCart.ProductID
                                select x).ToArray();
-            //skapa nytt objekt att lägga i kundvagnen
+            //skapa nytt objekt att lägga i kundvagnen och får sin info från productList[0].
                 var newItemToCart = new ShoppingCartModel()
                 {
                     ProductID = productList[0].ProductID,
@@ -54,6 +57,7 @@ namespace Mvcgrundprojekt.Controllers
             bool found = false;
             if (shoppingCartList.Count() == 0)
             {
+                //är det första saken in i shoppincarten så lägg till direkt och ändra priset på totalen
                 Session["totalPrice"] = newItemToCart.totalPrice;
                 shoppingCartList.Add(newItemToCart);
                 return Redirect("index");
@@ -68,6 +72,7 @@ namespace Mvcgrundprojekt.Controllers
                     if (shoppingCartList[i].ProductID == inputCart.ProductID)
                     {
                         //finns den så öka antalet av just den produkten med 1
+                        //och ändra totala priset med så mycket den kosatar
                         shoppingCartList[0].totalPrice += productList[0].Price;
                         shoppingCartList[i].TotalAmountPerID++;
                         Session["totalPrice"] = shoppingCartList[0].totalPrice;
@@ -87,33 +92,44 @@ namespace Mvcgrundprojekt.Controllers
             Session["shoppingCart"] = shoppingCartList;
             return Redirect("index");
         }
-
+        //ta bort från shoppinglistan
         public ActionResult Delete(ShoppingCartModel itemToDelete)
         {
+            ////////////////////
+            //shoppingCartList[0] innehåller alltid totala priset på hela shoppingcarten!
+            ///////////////////
+            //hämtar shopping listan            
             var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
+            //hämtar en lista på alla attribut av den produkt man vill ta bort och lägger i lista
             var productList = (from x in (List<ProductModel>)Session["productList"]
                                where x.ProductID == itemToDelete.ProductID
                                select x).ToList();
 
-
+            //loopar igenom för att se om det redan finns en av samma i listan
             for (int i = 0; i < shoppingCartList.Count(); i++)
             {
+                //om det blir en match
                 if (shoppingCartList[i].ProductID == itemToDelete.ProductID)
                 {
                     if (shoppingCartList[i].TotalAmountPerID == 0)
                     {
                         break;
                     }
+                    //om det finns fler än en av produkten i listan
                     if (shoppingCartList[i].TotalAmountPerID > 1)
                     {
+                        //ta bort en från den produkten från listan
                         shoppingCartList[i].TotalAmountPerID--;
+                        //justera priset 
                         shoppingCartList[0].totalPrice -= productList[0].Price;
                         Session["totalPrice"] = shoppingCartList[0].totalPrice;
                     }
                     else
                     {
+                        //justera pris om det är den sista kvar av produkten i listan
                         shoppingCartList[0].totalPrice -= productList[0].Price;
                         Session["totalPrice"] = shoppingCartList[0].totalPrice;
+                        //ta bort produkten från listan
                         shoppingCartList.RemoveAll(x => x.ProductID == itemToDelete.ProductID);
                         //var newItemToCart = new ShoppingCartModel() { totalPrice = 0 };
                         //shoppingCartList.Add(newItemToCart);                   
@@ -124,7 +140,7 @@ namespace Mvcgrundprojekt.Controllers
             return RedirectToAction("Index");
         }
 
-
+        //skall kommenteras!
         public ActionResult CheckOut ()
         {
             if (!(bool)Session["userLoggedIn"])

@@ -4,9 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
+@using (Html.BeginForm("index", "product"))
+{
+    <p>
+        Sök produkt: @Html.TextBox("Search")
+        <input id="submit" type="submit" />
+    </p>
+}
+
+<h2>Index</h2>
     @Html.ActionLink("Add new product", "AddNewProduct")
 </p>
 <table class="table">
