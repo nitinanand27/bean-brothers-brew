@@ -6,32 +6,18 @@
 
 <h2>CheckOut</h2>
 
-@{ 
-
-
+@foreach (var item in Model.Take(1)){
+            @Html.DisplayFor(modelItem => item.Firstname) <text> </text>
+            @Html.DisplayFor(modelItem => item.Lastname)<br />
+            @Html.DisplayFor(modelItem => item.Address)<br />
+            @Html.DisplayFor(modelItem => item.Personnumber)<br />
+            @Html.DisplayFor(modelItem => item.PhoneNumber)<br />
+            @Html.DisplayFor(modelItem => item.Email)<br />
 }
 
 <table class="table">
     <tr>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Firstname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lastname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Personnumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductID)
         </th>
@@ -51,43 +37,26 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Firstname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lastname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Personnumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-         <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.imgUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAmountPerID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalPrice)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>            
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                <img src="@item.imgUrl" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmountPerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalPrice)
+            </td>
+        </tr>
+    }
 
 
 </table>

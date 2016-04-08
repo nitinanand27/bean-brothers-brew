@@ -6,11 +6,19 @@
 
 <h2>Index</h2>
 
-
-
 @using (Html.BeginForm())
+{
+    <p>
+        Email @Html.TextBox("Email")
+        Password @Html.TextBox("Password")
+        <input id="submit" type="submit" />
+    </p>
+}
+
+
+@*@using (Html.BeginForm())
 {
     @Html.TextBoxFor(modelItem => modelItem.Email);
     @Html.TextBoxFor(modelItem => modelItem.Password);
     <input type="submit" name="LogIn"/>
-}
+}*@
