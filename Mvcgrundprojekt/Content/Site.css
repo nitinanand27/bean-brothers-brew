@@ -22,10 +22,6 @@ html {
     height: 100%;
 }
 
-.shop-text {
-    color: #ffffff;
-}
-
 p {
     color: #000000;
     margin: 0 0 25px;
@@ -243,6 +239,10 @@ a:focus {
 /* Section Webshop  */
 /* ------------------------------------------------------ */
 
+.webshop-header {
+    color: #ffffff;
+}
+
 .webshop-body {
     padding-top: 3%;
     width: 100%;
@@ -301,31 +301,32 @@ a:focus {
 /* Button design = Hur den funkar och färger */
 /* ------------------------------------------------------ */
 
-#intro-button {
+
+#intro-button { 
     margin-bottom: 25%;
     margin-right: 50px;
 }
 
 .btn {
-    border-radius: 0;
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
-    transition: all .3s ease-in-out;
+    border-radius: 0 !important;
+    text-transform: uppercase !important;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-weight: 400 !important;
+    transition: all .3s ease-in-out !important;
 }
 
 .btn-default {
-    border: 1px solid #C15A2D;
-    color: #C15A2D;
-    background-color: transparent;
+    border: 1px solid #C15A2D !important;
+    color: #C15A2D !important;
+    background-color: transparent !important;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid #C15A2D;
-    outline: 0;
-    color: #000000;
-    background-color: #C15A2D;
+    border: 1px solid #C15A2D !important;
+    outline: 0 !important;
+    color: #000000 !important;
+    background-color: #C15A2D !important;
 }
 
 /* ------------------------------------------------------ */
@@ -361,6 +362,7 @@ ul.banner-social-buttons {
 
 footer {
     padding: 50px 0;
+    background-color: #ffffff;
 }
 
 footer p {

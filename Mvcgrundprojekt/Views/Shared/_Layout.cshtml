@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +7,32 @@
 
     <title>@ViewBag.Title </title>
 
-    <!-- CSS filerna -->
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- CSS filerna, en blir hämtat ifrån bootstrap sidan som konstant är uppdaterad -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />*@
 
     <!-- Javascript filerna -->
-    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- jQuery, ger bakgrund till NAV och gör att den transitiona snyggt. -->
+    <script src="~/Scripts/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript, Gör inget?  -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript, gör så att det blir en flytande övergång till olika sections -->
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+
+    <!-- Huvud-js-filen för Naven att fungera , som sätter ihop allt. -->
+    <script src="~/Scripts/grayscale.js"></script>
+
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
 
     <!-- Hämtade Fonts, kan hämta nya enkelt -->
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
 
 </head>
 <body id="page-top">
@@ -165,20 +180,10 @@
         <!-- ------------------------------------------------ -->
         <!-- ---------------Javascripten--------------------- -->
         <!-- ------------------------------------------------ -->
-        <!-- jQuery, ger bakgrund till NAV och gör att den transitiona snyggt. -->
-        <script src="~/Scripts/jquery.js"></script>
 
-        <!-- Bootstrap Core JavaScript, Gör inget?  -->
-        <script src="~/Scripts/bootstrap.min.js"></script>
-
-        <!-- Plugin JavaScript, gör så att det blir en flytande övergång till olika sections -->
-        <script src="~/Scripts/jquery.easing.min.js"></script>
-
-        <!-- Huvud-js-filen för Naven att fungera , som sätter ihop allt. -->
-        <script src="~/Scripts/grayscale.js"></script>
+        
 
         <!-- denna förstör den mjuka rörelsen vid länk-klick -->
         @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
-        @*<script src="~/Scripts/bootstrap.min.js"></script>*@
 </body>
 </html>
