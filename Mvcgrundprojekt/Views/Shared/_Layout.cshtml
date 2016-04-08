@@ -7,9 +7,11 @@
 
     <title>@ViewBag.Title </title>
 
+    <!-- CSS filerna -->
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- Javascript filerna -->
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
 
@@ -122,7 +124,7 @@
                 </ul>
             </div>
 
-
+            <!-- ------------- Hur länkarna var innan ----------------------- -->
             @*<li class="active"><a href="/User/Register">Register</a></li>
             <li class="active"><a href="/Product/Index">Prudukter</a></li>
             <li class="active"><a href="/Login/Index">Logga in</a></li>
@@ -152,13 +154,30 @@
 
         <div class="container body-content">
             @RenderBody()
-            <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                <div class="container text-center">
+                    <p>Copyright &copy; @DateTime.Now.Year - Bean Brothers Brews</p>
+                </div>             
             </footer>
         </div>
 
-        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <!-- ------------------------------------------------ -->
+        <!-- ---------------Javascripten--------------------- -->
+        <!-- ------------------------------------------------ -->
+        <!-- jQuery, ger bakgrund till NAV och gör att den transitiona snyggt. -->
+        <script src="~/Scripts/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript, Gör inget?  -->
         <script src="~/Scripts/bootstrap.min.js"></script>
+
+        <!-- Plugin JavaScript, gör så att det blir en flytande övergång till olika sections -->
+        <script src="~/Scripts/jquery.easing.min.js"></script>
+
+        <!-- Huvud-js-filen för Naven att fungera , som sätter ihop allt. -->
+        <script src="~/Scripts/grayscale.js"></script>
+
+        <!-- denna förstör den mjuka rörelsen vid länk-klick -->
+        @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+        @*<script src="~/Scripts/bootstrap.min.js"></script>*@
 </body>
 </html>
