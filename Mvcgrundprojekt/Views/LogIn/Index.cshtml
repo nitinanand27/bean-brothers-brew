@@ -1,0 +1,16 @@
+﻿@model Mvcgrundprojekt.Models.UserModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(modelItem => modelItem.Email);
+    @Html.TextBoxFor(modelItem => modelItem.Password);
+    <input type="submit" name="LogIn"/>
+}
