@@ -4,115 +4,99 @@
     ViewBag.Title = "Index";
 }
 
-@*<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSS filerna -->
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <body class="webshop-body">
 
-    <!-- Hämtade Fonts, kan hämta nya enkelt -->
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-</head>*@
-<body class="webshop-body">
-
-    </div>
-    <!-- Contact Kundvagn -->
-        <section id="webshop-id" class="content-section text-center">
-            <div class="webshop-section">
-                <div class="container">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <h1 class="webshop-header">Go down for our webshop at Bean Brothers brews!</h1>
-                        <a href="#webshop-products" class="btn btn-default btn-lg page-scroll">Go down</a><br><br>
+        </div>
+        <!-- Contact Kundvagn -->
+            <section id="webshop-id" class="content-section text-center">
+                <div class="webshop-section">
+                    <div class="container">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <h1 class="webshop-header">Go down for our webshop at Bean Brothers brews!</h1>
+                            <a href="#webshop-products" class="btn btn-default btn-lg page-scroll">Go down</a><br><br>
+                        </div>
                     </div>
+                </div>
+            </section>
+
+        <section id="webshop-products" class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br />
+                    <br />
+                            @using (Html.BeginForm("index", "product"))
+                            {
+                                    @Html.TextBox("Search")
+                                    <input id="submit" type="submit" />
+                            }
+                        @*</div>*@
+                    </div>
+                    @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProductID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProductName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProductType)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProductCountry)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Price)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ImgUrl)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Amount)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductType)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductCountry)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    <img src="@item.ImgUrl" alt="Alternate Text" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Amount)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { item.ProductID }) |
+                                    @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) |
+                                    @Html.ActionLink("Delete", "Delete", new { item.ProductID })
+                                </td>
+                            </tr>
+                        }
+                    </table>
                 </div>
             </div>
         </section>
-
-    <section id="webshop-products" class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <br />
-                <br />
-                        @using (Html.BeginForm("index", "product"))
-                        {
-                                @Html.TextBox("Search")
-                                <input id="submit" type="submit" />
-                        }
-                    @*</div>
-                </div>*@
-                @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />              
-                <table class="table">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductType)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductCountry)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Price)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ImgUrl)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Amount)
-                        </th>
-                        <th></th>
-                    </tr>
-
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ProductID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ProductName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ProductType)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ProductCountry)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Price)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>
-                            <td>
-                                <img src="@item.ImgUrl" alt="Alternate Text" />
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Amount)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { item.ProductID }) |
-                                @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) |
-                                @Html.ActionLink("Delete", "Delete", new { item.ProductID })
-                            </td>
-                        </tr>
-                    }
-                </table>                 
-            </div>
-        </div>
-    </section>
-
-</body>
-@*</html>*@
+    </body>
