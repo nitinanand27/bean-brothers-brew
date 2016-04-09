@@ -27,8 +27,15 @@ html {
     height: 100%;
 }
 
+#product-sammanfattning {
+    width: 278px;
+    height: 280px;
+}
+
 #product-text {
     color: #ffffff;
+    font-size: 17px;
+    line-height: 1.3;
 }
 
 p {
@@ -276,6 +283,8 @@ a:focus {
     margin-top: 30px;
     margin-bottom: 20px;
 }
+
+
 
 /* ------------------------------------------------------ */
 /* Section Contact = Innehållet på sections */

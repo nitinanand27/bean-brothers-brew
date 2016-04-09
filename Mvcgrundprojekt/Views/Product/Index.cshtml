@@ -143,32 +143,25 @@
                     {
                         <div class="col-md-4 col-sm-4">
                             <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive thumbnail" style="width:100%" alt="Image">
+                            <div class="col-md-12  col-sm-12" id="product-sammanfattning">
                             <p id="product-text">@Html.DisplayFor(modelItem => item.ProductName)</p>
-                            <ul>
-                                <li>
-                                    ID: @Html.DisplayFor(modelItem => item.ProductID)
-                                </li>
-                                <li>
-                                    Namn: @Html.DisplayFor(modelItem => item.ProductName)
-                                </li>
-                                <li>
-                                    Sort: @Html.DisplayFor(modelItem => item.ProductType)
-                                </li>
-                                <li>
-                                    Land: @Html.DisplayFor(modelItem => item.ProductCountry)
-                                </li>
-                                <li>
-                                    Pris: @Html.DisplayFor(modelItem => item.Price)
-                                </li>
-                                <li>
-                                    @*@Html.DisplayFor(modelItem => item.Description)*@
 
-                                    Lager: @Html.DisplayFor(modelItem => item.Amount)
-                                </li>
-                                @*<br />
+                            <p id="product-text">ID: @Html.DisplayFor(modelItem => item.ProductID)</p>
+
+                            <p id="product-text">Namn: @Html.DisplayFor(modelItem => item.ProductName)</p>
+                            <p id="product-text">Sort: @Html.DisplayFor(modelItem => item.ProductType)</p>
+
+                            <p id="product-text">Land: @Html.DisplayFor(modelItem => item.ProductCountry)</p>
+
+                            <p id="product-text">Pris: @Html.DisplayFor(modelItem => item.Price)</p>
+
+                            @*@Html.DisplayFor(modelItem => item.Description)*@
+
+                            <p id="product-text">Lager: @Html.DisplayFor(modelItem => item.Amount)</p>
+                            @*<br />
                                 <div>@Html.DisplayFor(modelItem => item.Description)</div>*@
-                                <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) </button>
-                            </ul>
+                        </div>
+                                <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) </button>                          
                         </div>
                     }
 
