@@ -137,41 +137,13 @@
 
                 <!-- Resten -->
                     @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />
-                @*<table class="table">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductType)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductCountry)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Price)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ImgUrl)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Amount)
-                        </th>
-                        <th></th>
-                    </tr>*@
-
-
+               
+<!-- Foreach som skriver ut varje produkt enligt dessa hänvisningarna, gör en ruta i en 3 radscolumn med responsiva bilder -->
                     @foreach (var item in Model)
                     {
                         <div class="col-md-4 col-sm-4">
-                            <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            <p id="product-text">Lorem ipsum..</p>
+                            <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive thumbnail" style="width:100%" alt="Image">
+                            <p id="product-text">@Html.DisplayFor(modelItem => item.ProductName)</p>
                             <ul>
                                 <li>
                                     ID: @Html.DisplayFor(modelItem => item.ProductID)
@@ -191,10 +163,11 @@
                                 <li>
                                     @*@Html.DisplayFor(modelItem => item.Description)*@
 
-                                    ST/p: @Html.DisplayFor(modelItem => item.Amount)
+                                    Lager: @Html.DisplayFor(modelItem => item.Amount)
                                 </li>
-
-                                    @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) |
+                                @*<br />
+                                <div>@Html.DisplayFor(modelItem => item.Description)</div>*@
+                                <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) </button>
                             </ul>
                         </div>
                     }

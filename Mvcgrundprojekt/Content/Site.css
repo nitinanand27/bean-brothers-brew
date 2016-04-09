@@ -272,6 +272,10 @@ a:focus {
     background-size: cover;
 }
 
+#add-to-shoppingcart-btn {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
 
 /* ------------------------------------------------------ */
 /* Section Contact = Innehållet på sections */
