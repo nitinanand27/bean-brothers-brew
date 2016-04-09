@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mvcgrundprojekt.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,11 @@ namespace Mvcgrundprojekt.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult shoppingCartPartial()
+        {
+            var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
+            return PartialView(shoppingCartList);
         }
     }
 }

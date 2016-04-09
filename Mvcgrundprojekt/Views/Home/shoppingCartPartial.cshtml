@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Mvcgrundprojekt.Models.ShoppingCartModel>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>            
+            @Html.DisplayNameFor(model => model.imgUrl)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.TotalAmountPerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalPrice)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            <img style="max-height:100px; max-width:100px;" src="@item.imgUrl" />
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmountPerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    </tr>
+}
+
+</table>

@@ -17,6 +17,7 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult Register()
         {
+            //om personen redan är inloggad = skicka tillbaka till startsidan
             if ((bool)Session["userLoggedIn"])
             {
                 return Redirect("/home/Index");
@@ -43,8 +44,9 @@ namespace Mvcgrundprojekt.Controllers
                     Admin = false,                    
                 };
                 //Häntar listan med användare och lägger sen till den nya användaren
-                var lista = (List<UserModel>)Session["userList"];
-                lista.Add(newUser);                
+                var userList = (List<UserModel>)Session["userList"];
+                userList.Add(newUser);
+                Session["userList"] = userList;
                 return RedirectToAction("Index");
             }
 

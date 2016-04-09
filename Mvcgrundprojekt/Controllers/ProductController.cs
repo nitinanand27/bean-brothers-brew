@@ -21,8 +21,14 @@ namespace Mvcgrundprojekt.Controllers
             }
             else
             {
+                //gör om sökningen till små bokstäver
+                search = search.ToLower();           
+                //söker efter en match i productname, description, productcountry och producttype och returnerar en lista på resultatet   
                 var searchResult = (from x in (List<ProductModel>)Session["productList"]
-                                    where x.ProductName == search || x.Description.Contains(search) || x.ProductCountry == search || x.ProductType == search
+                                    where x.ProductName.ToLower() == search ||
+                                    x.Description.ToLower().Contains(search) ||
+                                    x.ProductCountry.ToLower() == search ||
+                                    x.ProductType.ToLower() == search
                                     select x).ToList();
                 return View(searchResult);
             }
@@ -54,20 +60,11 @@ namespace Mvcgrundprojekt.Controllers
                 //byt ut produkten
                 productList[oldProduct] = newEditedProduct;
                 //skicka till index på produkter
+                Session["productList"] = productList;
                 return RedirectToAction("index");
             }
 
             return View();
-        }
-        public ActionResult Search(string search)
-        {
-            //sökfunktionen
-            //söker efter en produkt med samma namn som det man skickade in
-            //skall göras bättre
-            var searchResult = (from x in (List<ProductModel>)Session["productList"]
-                                where x.ProductName == search
-                                select x).ToList();
-            return View(searchResult);
         }
         public ActionResult Delete(ProductModel input)
         {
@@ -75,6 +72,7 @@ namespace Mvcgrundprojekt.Controllers
             //tar bort från produktlista beroende på vilket ID som kommer från view:n
             var lista = (List<ProductModel>)Session["productList"];
             lista.RemoveAll(x => x.ProductID == input.ProductID);
+            Session["productList"] = lista;
             //Session["productList"] = lista;
             return RedirectToAction("index");
         }
@@ -108,6 +106,7 @@ namespace Mvcgrundprojekt.Controllers
                 };
                 //lägger till objektet i listan och skickar tillbaka till index
                 lista.Add(newProduct);
+                Session["productList"] = lista;
                 return RedirectToAction("index");
 
             }
