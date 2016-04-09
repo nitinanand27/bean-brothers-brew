@@ -22,145 +22,40 @@
         <!-- Sök rutan -->
         <section id="webshop-products" class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" id="seach-for-products-text">
                     <br />
                     <br />
                             @using (Html.BeginForm("index", "product"))
                             {
-                                    @Html.TextBox("Search")
-                                    <input id="submit" type="submit" />
+                                <!-- Hur får man texten svaaaaaaaart?  -->
+                                 @Html.TextBox("Search..", null, new { @class = "seach-for-products-text" })
+                                    <input class="search-for-products" id="submit" type="submit"/>
                             }
-                        @*</div>*@
+                        @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />                       
                     </div>
 
- <!-- ---------------- Bilderna och kolumerna, 3 på varje ----------------  -->
 
-                @*<section id="first-6-products">
-                    <div class="container-fluid bg-3 text-center">
-                        <h3>Our coffee products</h3>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                
-                                    @Html.DisplayNameFor(model => model.ProductID)
-                                                                
-                                    @Html.DisplayNameFor(model => model.ProductName)
-                                                         
-                                    @Html.DisplayNameFor(model => model.ProductType)
-                                
-                                    @Html.DisplayNameFor(model => model.ProductCountry)
-                                
-                                    @Html.DisplayNameFor(model => model.Price)
-                                
-                                    @Html.DisplayNameFor(model => model.Description)
-                                
-                                    @Html.DisplayNameFor(model => model.ImgUrl)
-                                
-                                    @Html.DisplayNameFor(model => model.Amount)
-
-
-    
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                            <div class="col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-
-
-
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                            <div class="col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-
-
-
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Andra raden med 3 bilder -->
-                    <div class="container-fluid bg-3 text-center">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                            <div class="col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                            <div class="col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Tredje raden med 3 bilder -->
-                <section id="second-6-products">
-                    <div class="container-fluid bg-3 text-center">
-                        <h3 id="coffee-beans-header">Our coffee products</h3>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                            <div class="col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                            <div class="col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fjärde raden med 3 bilder -->
-                    <div class="container-fluid bg-3 text-center">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                            <div class="col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                            <div class="col-sm-4">
-                                <p id="product-text">Lorem ipsum..</p>
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive" style="width:100%" alt="Image">
-                            </div>
-                        </div>
-                    </div>
-                </section>*@
-
-                <!-- Resten -->
-                    @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />
-               
+ <!-- ---------------- Bilderna och kolumerna, 3 på varje ----------------  -->             
 <!-- Foreach som skriver ut varje produkt enligt dessa hänvisningarna, gör en ruta i en 3 radscolumn med responsiva bilder -->
                     @foreach (var item in Model)
                     {
                         <div class="col-md-4 col-sm-4">
                             <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive thumbnail" style="width:100%" alt="Image">
-                            <div class="col-md-12  col-sm-12" id="product-sammanfattning">
+                                <div class="col-md-12  col-sm-12" id="product-sammanfattning">
+
                             <p id="product-text">@Html.DisplayFor(modelItem => item.ProductName)</p>
-
                             <p id="product-text">ID: @Html.DisplayFor(modelItem => item.ProductID)</p>
-
                             <p id="product-text">Namn: @Html.DisplayFor(modelItem => item.ProductName)</p>
                             <p id="product-text">Sort: @Html.DisplayFor(modelItem => item.ProductType)</p>
-
                             <p id="product-text">Land: @Html.DisplayFor(modelItem => item.ProductCountry)</p>
-
                             <p id="product-text">Pris: @Html.DisplayFor(modelItem => item.Price)</p>
 
                             @*@Html.DisplayFor(modelItem => item.Description)*@
 
                             <p id="product-text">Lager: @Html.DisplayFor(modelItem => item.Amount)</p>
-                            @*<br />
-                                <div>@Html.DisplayFor(modelItem => item.Description)</div>*@
-                        </div>
+
+                            @*<div>@Html.DisplayFor(modelItem => item.Description)</div>*@
+                                </div>
                                 <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) </button>                          
                         </div>
                     }
