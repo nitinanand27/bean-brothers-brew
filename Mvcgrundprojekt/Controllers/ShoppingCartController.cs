@@ -143,36 +143,45 @@ namespace Mvcgrundprojekt.Controllers
         //skall kommenteras!
         public ActionResult CheckOut ()
         {
+            //kollar först om man är inloggad
             if (!(bool)Session["userLoggedIn"])
             {
                 return Redirect("/login/index");
             }
-
+            //hämtar hela shoppingcart-listan
             var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
+            //hämtar vilken användare det är, jämför Email med session-objektet = ["userName"]
+            // för att få användar-info och lägger allting i en array, så man kan använda user[0] för att lätt komma åt infon
             var user = (from x in (List<UserModel>)Session["userList"]
                             where x.Email == (string)Session["userName"]
                             select x).ToArray();
 
+            //skapar en ny lista med vad som skall checkas ut!
             var checkOutList = new List<CheckOutModel>();
 
+            //för varje produkt i shoppingcarten så kopieras användarens information och informationen om vilka produkter som ska med
             foreach (var item in shoppingCartList)
             {
                 var newCheckOut = new CheckOutModel()
                 {
+
+                    //personinfon blir samma varje gång efterseom det är user[0], user[0] skapas längre upp
                     Firstname = user[0].Firstname,
                     Lastname = user[0].Lastname,
                     Email = user[0].Email,
                     Personnumber = user[0].Personnumber,
                     PhoneNumber = user[0].PhoneNumber,
                     Address = user[0].Address,
-                    
 
+                    //lägger in infon om vilka produkter som skall köpas i produktlistan
+                    //går igenom hela listan och lägger till det som finns
                     ProductName = shoppingCartList[0].ProductName,
                     imgUrl = shoppingCartList[0].imgUrl,
                     totalPrice = shoppingCartList[0].totalPrice,
                     ProductID = shoppingCartList[0].ProductID,
                     TotalAmountPerID = shoppingCartList[0].TotalAmountPerID,
                 };
+                //lägger in grejer checkout-listan
                 checkOutList.Add(newCheckOut);
             }
 

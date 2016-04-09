@@ -12,7 +12,11 @@ namespace Mvcgrundprojekt.Controllers
         // GET: LogIn
         public ActionResult LogOut ()
         {
-            //sätter tillbaka alla sessions-variablar till falskt
+            if (!(bool)Session["userLoggedIn"])
+            {
+                return Redirect("/home/Index");
+            }
+            //sätter tillbaka alla sessions-variablar till ursprunget
             Session["loggedInMessage"] = "not logged in";
             Session["userLoggedIn"] = false;
             Session["admin"] = false;
@@ -50,11 +54,11 @@ namespace Mvcgrundprojekt.Controllers
                         }
                     }
                 }
-                return View();
+                return Redirect("/home/index");
             }
             else
             {
-                return View();
+                return Redirect("/home/index");
             }
 
 
