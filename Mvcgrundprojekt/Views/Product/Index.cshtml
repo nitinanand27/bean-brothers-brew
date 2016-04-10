@@ -28,7 +28,7 @@
                             @using (Html.BeginForm("index", "product"))
                             {
                                 <!-- Hur får man texten svaaaaaaaart?  -->
-                                 @Html.TextBox("Search..", null, new { @class = "seach-for-products-text" })
+                                 @Html.TextBox("Search..", null, new { @class = "search-for-products-text" })
                                     <input class="search-for-products" id="submit" type="submit"/>
                             }
                         @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />                       
@@ -39,25 +39,28 @@
 <!-- Foreach som skriver ut varje produkt enligt dessa hänvisningarna, gör en ruta i en 3 radscolumn med responsiva bilder -->
                     @foreach (var item in Model)
                     {
-                        <div class="col-md-4 col-sm-4">
-                            <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive thumbnail" style="width:100%" alt="Image">
-                                <div class="col-md-12  col-sm-12" id="product-sammanfattning">
+                        <div class="col-md-4 col-sm-4">  
+                            <div id="wrapper">
+                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive thumbnail" id="hover-pics" style="width:100%" alt="Image">
+                                <p class="text">@Html.DisplayFor(modelItem => item.ProductName)</p>
+                            </div>
+                                    <div class="col-md-12  col-sm-12" id="product-sammanfattning">
 
-                            <p id="product-text">@Html.DisplayFor(modelItem => item.ProductName)</p>
-                            <p id="product-text">ID: @Html.DisplayFor(modelItem => item.ProductID)</p>
-                            <p id="product-text">Namn: @Html.DisplayFor(modelItem => item.ProductName)</p>
-                            <p id="product-text">Sort: @Html.DisplayFor(modelItem => item.ProductType)</p>
-                            <p id="product-text">Land: @Html.DisplayFor(modelItem => item.ProductCountry)</p>
-                            <p id="product-text">Pris: @Html.DisplayFor(modelItem => item.Price)</p>
+                                        <p id="product-text">@Html.DisplayFor(modelItem => item.ProductName)</p>
+                                        <p id="product-text">ID: @Html.DisplayFor(modelItem => item.ProductID)</p>
+                                        <p id="product-text">Namn: @Html.DisplayFor(modelItem => item.ProductName)</p>
+                                        <p id="product-text">Sort: @Html.DisplayFor(modelItem => item.ProductType)</p>
+                                        <p id="product-text">Land: @Html.DisplayFor(modelItem => item.ProductCountry)</p>
+                                        <p id="product-text">Pris: @Html.DisplayFor(modelItem => item.Price)</p>
 
-                            @*@Html.DisplayFor(modelItem => item.Description)*@
+                                        @*@Html.DisplayFor(modelItem => item.Description)*@
 
-                            <p id="product-text">Lager: @Html.DisplayFor(modelItem => item.Amount)</p>
+                                        <p id="product-text">Lager: @Html.DisplayFor(modelItem => item.Amount)</p>
 
-                            @*<div>@Html.DisplayFor(modelItem => item.Description)</div>*@
+                                        @*<div>@Html.DisplayFor(modelItem => item.Description)</div>*@
+                                    </div>
+                                    <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) </button>
                                 </div>
-                                <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) </button>                          
-                        </div>
                     }
 
 

@@ -9,11 +9,7 @@
 /* Innehåll */
 /* ------------------------------------------------------ */
 
-#seach-for-products-text {
-    color: #000;
-}
-
-.seach-for-products-text {
+.search-for-products-text {
     color: #000;
 }
 
@@ -94,7 +90,15 @@ h6 {
     letter-spacing: 1px;
 }
 
-
+/* H2 rubrik på första sidan */
+#banner-header-firstpage {
+    color: #fff;
+    margin: 0 0 35px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
 
 @media(min-width:768px) {
     p {
@@ -110,7 +114,7 @@ h6 {
 /* ------------------------------------------------------ */
 
 a {
-    color: #C15A2D;
+    color: #fff !important;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -119,7 +123,7 @@ a {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #763a1f;
+    color: #C15A2D !important;
 }
 
 
@@ -294,6 +298,35 @@ a:focus {
 #add-to-shoppingcart-btn {
     margin-top: 30px;
     margin-bottom: 20px;
+}
+
+/* ------------------------------------------------------ */
+/* Effekter till bilderna + texten */
+/* ------------------------------------------------------ */
+
+#hover-pics {
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+#hover-pics:hover {
+  -webkit-filter: blur(5px);
+}
+
+#wrapper .text {
+    text-align: center;
+    position:relative;
+    bottom:100px;
+    left:0px;
+    visibility:hidden;
+}
+
+#wrapper:hover .text {
+    color: #fff;
+    background-color: #C15A2D;
+    visibility:visible;
 }
 
 

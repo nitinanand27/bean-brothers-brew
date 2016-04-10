@@ -15,6 +15,7 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Bean Brothers Brew</h1>
                         <!-- En knapp där vi kan göra om och hänvisa dit vi vill. Eventuellt ha 2-3 knappar, just nu är den anchor i "about". -->
+                        <!-- Göra en If / Else att inloggingsrutan ej ska visas, om man är inloggad. -->
                         <form action="/LogIn/Index" method="post" class="form-inline">
                             <div class="form-group">
                                 <input class="form-control" name="email" placeholder="Email" />
@@ -49,10 +50,10 @@
     <section id="products" class="content-section">
         <div class="products-section">
             <div class="container" id="products-container">
-                <div class="col-lg-8 col-lg-offset-8">
-                    <h2>Webshop elleer? </h2>
-                    <a href="#page-top" class="btn btn-default btn-lg">Knappen ska någonstans</a><br><br>
-                    <a href="#page-top" class="btn btn-default btn-lg">Knappen ska någonstans</a>
+                <div class="col-lg-8 col-lg-offset-8 col-md-8 col-md-offset-8 col-sm-8 col-sm-offset-8">
+                    <h2 id="banner-header-firstpage">Intressant?</h2>
+                    <a href="~/Product/Index" class="btn btn-default btn-lg">Börja handla i Webshop</a><br><br>
+                    <a href="#page-top" class="btn btn-default btn-lg page-scroll">Till början av hemsidan</a>
                 </div>
             </div>
         </div>
