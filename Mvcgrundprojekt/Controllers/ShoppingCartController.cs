@@ -60,7 +60,7 @@ namespace Mvcgrundprojekt.Controllers
                 //är det första saken in i shoppincarten så lägg till direkt och ändra priset på totalen
                 Session["totalPrice"] = newItemToCart.totalPrice;
                 shoppingCartList.Add(newItemToCart);
-                return Redirect("/product/index");
+                return Redirect("index");
             }
             //annars loopa igenonm listan            
             else
@@ -90,7 +90,7 @@ namespace Mvcgrundprojekt.Controllers
                 shoppingCartList.Add(newItemToCart);
             }
             Session["shoppingCart"] = shoppingCartList;
-            return Redirect("/product/index");
+            return Redirect("index");
         }
         //ta bort från shoppinglistan
         public ActionResult Delete(ShoppingCartModel itemToDelete)
