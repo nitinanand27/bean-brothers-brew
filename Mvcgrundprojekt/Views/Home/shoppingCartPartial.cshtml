@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Mvcgrundprojekt.Models.ShoppingCartModel>
 
-<table class="table" style="background-color:black;">
+<table class="table">
     <tr>
 
         <th>
-            Produkt:
+            Product:
         </th>
         <th>
-            Antal
+            Amount:
         </th>
         <th>   
         </th>
@@ -31,11 +31,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
-        <th>
+        <td>
             @Html.DisplayFor(modelItem => item.TotalAmountPerID)
-        </th>
+
+            @*satt svart färg på papperskorgen!*@
+            <a href="@Url.Action("Delete", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-trash" style="color:black"></span></a>
+        </td>
         <td>
             <img style="max-height:100px; max-width:100px;" src="@item.imgUrl" />
+           
         </td>
         <td>
             @*@Html.DisplayFor(modelItem => item.ProductID)
@@ -50,9 +54,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.totalPrice)
         </td>*@
-        <td>
-            @Html.ActionLink("Remove", "Delete", "ShoppingCart",  new {  item.ProductID  }, null)
-        </td>
+
     </tr>
 }
 
