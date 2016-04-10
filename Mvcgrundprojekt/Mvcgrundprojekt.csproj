@@ -154,6 +154,7 @@
     <Content Include="Views\ShoppingCart\%40AddToCart.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
+    <Content Include="Views\Home\shoppingCartPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -28,7 +28,7 @@ namespace Mvcgrundprojekt.Controllers
             //om man försöker läggga in saker i varukorgen utan att vara inloggad
             if (!(bool)Session["userLoggedIn"])
             {
-                return Redirect("/product/index");
+                return Redirect("/login/index");
             }
             var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
             //om man kommer hit utan att ha klickat på "lägg till i varukorg"
@@ -60,7 +60,7 @@ namespace Mvcgrundprojekt.Controllers
                 //är det första saken in i shoppincarten så lägg till direkt och ändra priset på totalen
                 Session["totalPrice"] = newItemToCart.totalPrice;
                 shoppingCartList.Add(newItemToCart);
-                return Redirect("index");
+                return Redirect("/product/index");
             }
             //annars loopa igenonm listan            
             else
@@ -90,11 +90,15 @@ namespace Mvcgrundprojekt.Controllers
                 shoppingCartList.Add(newItemToCart);
             }
             Session["shoppingCart"] = shoppingCartList;
-            return Redirect("index");
+            return Redirect("/product/index");
         }
         //ta bort från shoppinglistan
         public ActionResult Delete(ShoppingCartModel itemToDelete)
         {
+            if (!(bool)Session["userLoggedIn"])
+            {
+                return Redirect("/login/index");
+            }
             ////////////////////
             //shoppingCartList[0] innehåller alltid totala priset på hela shoppingcarten!
             ///////////////////
@@ -137,7 +141,7 @@ namespace Mvcgrundprojekt.Controllers
                 }
             }
             Session["shoppingCart"] = shoppingCartList;
-            return RedirectToAction("Index");
+            return Redirect("/product/index");
         }
 
         //skall kommenteras!

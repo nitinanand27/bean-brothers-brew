@@ -1,19 +1,18 @@
 ﻿@model IEnumerable<Mvcgrundprojekt.Models.ShoppingCartModel>
 
-<table class="table">
+<table class="table" style="background-color:black;">
     <tr>
 
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+            Produkt:
         </th>
-        <th>            
-            @Html.DisplayNameFor(model => model.imgUrl)
+        <th>
+            Antal
+        </th>
+        <th>   
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.ProductID)
-        </th>*@
-        @*<th>
-            @Html.DisplayNameFor(model => model.TotalAmountPerID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)
@@ -32,16 +31,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.TotalAmountPerID)
+        </th>
         <td>
             <img style="max-height:100px; max-width:100px;" src="@item.imgUrl" />
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.ProductID)
+        <td>
+            @*@Html.DisplayFor(modelItem => item.ProductID)
         </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAmountPerID)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>
@@ -50,12 +49,10 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.totalPrice)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>*@
+        <td>
+            @Html.ActionLink("Remove", "Delete", "ShoppingCart",  new {  item.ProductID  }, null)
+        </td>
     </tr>
 }
 

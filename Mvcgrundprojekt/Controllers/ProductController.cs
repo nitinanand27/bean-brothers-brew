@@ -36,6 +36,10 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult Edit(ProductModel input)
         {
+            if (!(bool)Session["admin"] && !(bool)Session["userLoggedIn"])
+            {
+                return Redirect("/login/index");
+            }
             //om det som kommer in inte är ett försök att ändra på nånting, dvs att det är null så visas bara viewn
             //om det kommer med en produkt fullt med nya saker så ändrar den det aktuella produkten till det nya
             //och hittar den gamla produkten och skriver över den
@@ -68,6 +72,10 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult Delete(ProductModel input)
         {
+            if (!(bool)Session["admin"] && !(bool)Session["userLoggedIn"])
+            {
+                return Redirect("/login/index");
+            }
             //det som kommer in genom "ProductModel input" är ett ID
             //tar bort från produktlista beroende på vilket ID som kommer från view:n
             var lista = (List<ProductModel>)Session["productList"];
@@ -83,9 +91,9 @@ namespace Mvcgrundprojekt.Controllers
         public ActionResult AddNewProduct(ProductModel input)
         {
             //kollar först om den som försöker lägga till produkt är en administratör
-            if (!(bool)Session["admin"])
+            if (!(bool)Session["admin"] && !(bool)Session["userLoggedIn"])
             {
-                return Redirect("/product/index");
+                return Redirect("/login/index");
             }
             //kollar att den som är inloggad är admin och att inmatningen inte är null
             if ((bool)Session["admin"] && input.ProductType != null)
