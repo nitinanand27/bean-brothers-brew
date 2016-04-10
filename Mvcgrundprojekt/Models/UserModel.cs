@@ -86,7 +86,18 @@ namespace Mvcgrundprojekt.Models
                     Personnumber = "8606114679",
                     PhoneNumber = "0709695196",
                     Admin = true
-                }
+                },
+                    new UserModel()
+                    {
+                        Firstname = "Patrik",
+                        Lastname = "Nilsson",
+                        Password = "123",
+                        Email = "patteee2@gmail.com",
+                        Address = "Strandvägen 40 31145 Falkenberg",
+                        Personnumber = "8606114679",
+                        PhoneNumber = "0709695196",
+                        Admin = false
+                    }
             };
             return users;
         }

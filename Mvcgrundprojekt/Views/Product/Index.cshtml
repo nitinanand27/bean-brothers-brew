@@ -25,47 +25,62 @@
                 <div class="col-lg-12" id="seach-for-products-text">
                     <br />
                     <br />
-                            @using (Html.BeginForm("index", "product"))
-                            {
+                    @using (Html.BeginForm("index", "product"))
+                    {   
                                 <!-- Hur får man texten svaaaaaaaart?  -->
-                                 @Html.TextBox("Search..", null, new { @class = "search-for-products-text" })
-                                    <input class="search-for-products" id="submit" type="submit"/>
-                            }
-                        @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />       
-                        @*@Html.ActionLink("Edit", "Edit", new { item.ProductID }) |
-                        @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) |
-                        @Html.ActionLink("Delete", "Delete", new { item.ProductID })*@                
+                        @Html.TextBox("Search..", null, new { @class = "search-for-products-text" })
+                        <input class="search-for-products" value="Search" id="submit" type="submit" />
+                    }
+                    <br />
+                    @{
+                        if ((bool)Session["admin"])
+                        {
+                            @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />
+                        }
+                    }                    
+                    @*@Html.ActionLink("Edit", "Edit", new { item.ProductID }) |
+                    @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) |
+                    @Html.ActionLink("Delete", "Delete", new { item.ProductID })*@
+                </div>
+                <br />
+
+                <!-- ---------------- Bilderna och kolumerna, 3 på varje ----------------  -->
+                <!-- Foreach som skriver ut varje produkt enligt dessa hänvisningarna, gör en ruta i en 3 radscolumn med responsiva bilder -->
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-4">
+                        <div id="wrapper">
+                            <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive thumbnail" id="hover-pics" style="width:100%" alt="Image">
+                            <p class="text">@Html.DisplayFor(modelItem => item.ProductName)</p>
+                        </div>
+                        <div class="col-md-12  col-sm-12" id="product-sammanfattning">
+
+                            <p id="product-text">@Html.DisplayFor(modelItem => item.ProductName)</p>
+                            <p id="product-text">ID: @Html.DisplayFor(modelItem => item.ProductID)</p>
+                            <p id="product-text">Name: @Html.DisplayFor(modelItem => item.ProductName)</p>
+                            <p id="product-text">Type: @Html.DisplayFor(modelItem => item.ProductType)</p>
+                            <p id="product-text">Country: @Html.DisplayFor(modelItem => item.ProductCountry)</p>
+                            <p id="product-text">Price: @Html.DisplayFor(modelItem => item.Price)</p>
+
+                            @*@Html.DisplayFor(modelItem => item.Description)*@
+
+                            <p id="product-text">In stock: @Html.DisplayFor(modelItem => item.Amount)</p>
+                            @{
+                                if ((bool)Session["admin"])
+                                {
+                                    <span>
+                                        <a href="@Url.Action("Edit", "product", new { item.ProductID })"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                                    </span>
+                                }
+                            } 
+                            
+                            @*<div>@Html.DisplayFor(modelItem => item.Description)</div>*@
+                        </div>
+
+                        <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { item.ProductID }, new { @class = "add-to-cart-hyperlink" }) </button>
                     </div>
-
-
- <!-- ---------------- Bilderna och kolumerna, 3 på varje ----------------  -->             
-<!-- Foreach som skriver ut varje produkt enligt dessa hänvisningarna, gör en ruta i en 3 radscolumn med responsiva bilder -->
-                    @foreach (var item in Model)
-                    {
-                        <div class="col-md-4 col-sm-4">  
-                            <div id="wrapper">
-                                <img src="http://www.baristashopen.se/shop/4461/art61/h6089/32396089-origpic-412d02.jpg" class="img-responsive thumbnail" id="hover-pics" style="width:100%" alt="Image">
-                                <p class="text">@Html.DisplayFor(modelItem => item.ProductName)</p>
-                            </div>
-                                    <div class="col-md-12  col-sm-12" id="product-sammanfattning">
-
-                                        <p id="product-text">@Html.DisplayFor(modelItem => item.ProductName)</p>
-                                        <p id="product-text">ID: @Html.DisplayFor(modelItem => item.ProductID)</p>
-                                        <p id="product-text">Namn: @Html.DisplayFor(modelItem => item.ProductName)</p>
-                                        <p id="product-text">Sort: @Html.DisplayFor(modelItem => item.ProductType)</p>
-                                        <p id="product-text">Land: @Html.DisplayFor(modelItem => item.ProductCountry)</p>
-                                        <p id="product-text">Pris: @Html.DisplayFor(modelItem => item.Price)</p>
-
-                                        @*@Html.DisplayFor(modelItem => item.Description)*@
-
-                                        <p id="product-text">Lager: @Html.DisplayFor(modelItem => item.Amount)</p>
-
-                                        @*<div>@Html.DisplayFor(modelItem => item.Description)</div>*@
-                                    </div>
-
-                                    <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, new { @class = "add-to-cart-hyperlink"}) </button>
-                                </div>
-                    }                           
+                }
             </div>
         </section>
+
     </body>

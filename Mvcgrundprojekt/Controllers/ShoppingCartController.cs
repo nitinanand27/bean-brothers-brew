@@ -156,6 +156,11 @@ namespace Mvcgrundprojekt.Controllers
             var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
             //hämtar vilken användare det är, jämför Email med session-objektet = ["userName"]
             // för att få användar-info och lägger allting i en array, så man kan använda user[0] för att lätt komma åt infon
+            if (shoppingCartList.Count() == 0)
+            {
+                var newItemToCart = new ShoppingCartModel();
+                shoppingCartList.Add(newItemToCart);
+            }
             var user = (from x in (List<UserModel>)Session["userList"]
                             where x.Email == (string)Session["userName"]
                             select x).ToArray();

@@ -36,7 +36,7 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult Edit(ProductModel input)
         {
-            if (!(bool)Session["admin"] && !(bool)Session["userLoggedIn"])
+            if (!(bool)Session["admin"])
             {
                 return Redirect("/login/index");
             }
@@ -72,7 +72,7 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult Delete(ProductModel input)
         {
-            if (!(bool)Session["admin"] && !(bool)Session["userLoggedIn"])
+            if (!(bool)Session["admin"])
             {
                 return Redirect("/login/index");
             }
@@ -91,7 +91,7 @@ namespace Mvcgrundprojekt.Controllers
         public ActionResult AddNewProduct(ProductModel input)
         {
             //kollar först om den som försöker lägga till produkt är en administratör
-            if (!(bool)Session["admin"] && !(bool)Session["userLoggedIn"])
+            if (!(bool)Session["admin"])
             {
                 return Redirect("/login/index");
             }
