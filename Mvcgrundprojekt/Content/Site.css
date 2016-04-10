@@ -126,6 +126,12 @@ a:focus {
     color: #C15A2D !important;
 }
 
+.add-to-cart-hyperlink:hover
+{
+    text-decoration: none;
+    color: #ffffff !important;
+}
+
 
 
 /* ------------------------------------------------------ */
@@ -443,7 +449,7 @@ footer p {
 ul.dropdown-cart{
     min-width:250px;
 }
-ul.dropdown-cart li .item{
+/*ul.dropdown-cart li .item{
     display:block;
     padding:3px 10px;
     margin: 3px 0;
@@ -478,7 +484,7 @@ ul.dropdown-cart li .item-right{
 }
 ul.dropdown-cart li .item-right button{
     margin-top:14px;
-}
+}*/
 
 
 
