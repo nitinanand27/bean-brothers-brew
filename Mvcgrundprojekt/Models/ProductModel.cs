@@ -41,7 +41,7 @@ namespace Mvcgrundprojekt.Models
                 },
                 new ProductModel () {
                     ProductID = 2,
-                    ProductName = "Buena Vista - Ekologiska mellanrostade bryggkaffebönor",
+                    ProductName = "Buena Vista",
                     ProductType = "Mald",
                     ProductCountry = "Etiopien",
                     Price = 110,
@@ -51,7 +51,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 3,
-                    ProductName = "India Monsoon Malabar - Monsun Malabar",
+                    ProductName = "India Monsoon Malabar",
                     ProductType = "Böna",
                     ProductCountry = "Indien",
                     Price = 130,
@@ -101,7 +101,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 8,
-                    ProductName = "Espresso FTO - Fair Trade Organic",
+                    ProductName = "Espresso FTO",
                     ProductType = "mald",
                     ProductCountry = "Indonesien",
                     Price = 130,
@@ -111,7 +111,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 9,
-                    ProductName = "Sumatra Gayo Mountain FTO",
+                    ProductName = "Sumatra Gayo Mountain",
                     ProductType = "Mald",
                     ProductCountry = "Indonesien",
                     Price = 99,
@@ -141,7 +141,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 12,
-                    ProductName = " Gachatha AA - Kenya",
+                    ProductName = " Gachatha AA",
                     ProductType = "Mald",
                     ProductCountry = "Kenya",
                     Price = 89,
