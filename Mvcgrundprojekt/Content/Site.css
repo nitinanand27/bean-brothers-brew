@@ -308,13 +308,15 @@ a:focus {
 /* ------------------------------------------------------ */
 
 .view-shoppingcart-section-body {
+    
     margin-top: 100px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(img/restaurant-hands-people-coffee.jpg);
     background-size: cover;
     color: #fff;
 }
 
-.view-shoppingcart-section {
+.view-shoppingcart-section {   
+    overflow:hidden;
     width: 100%;
     height: 100%;
     background-color: #000000;
@@ -334,6 +336,7 @@ a:focus {
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
 
 /* ------------------------------------------------------ */
 /* Test-tabell  */

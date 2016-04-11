@@ -1,8 +1,73 @@
 ﻿@model IEnumerable<Mvcgrundprojekt.Models.CheckOutModel>
 
-@{
-    ViewBag.Title = "CheckOut";
-}
+<br />
+<br />
+<br />
+<body class="view-shoppingcart-section-body">
+    <section class="view-shoppingcart-section">
+        <div class="container">
+            <h2 class="view-shoppingcart-header">Checkout</h2>
+
+            @{
+                if (Model.Any())
+                {
+                    <text>Total summa: </text> @Model.First().totalPrice
+                }
+                else
+                {
+                    <text>Total summa: 0</text>
+                }
+
+            }
+            <table class="table">
+                <tr>
+                    <th class="view-shoppingcart-table">
+                        Produktnamn
+                    </th>
+                    <th class="view-shoppingcart-table">
+                        Bild
+                    </th>
+                    <th class="view-shoppingcart-table">
+                        Antal
+                    </th>
+                    <th class="view-shoppingcart-table">
+                        Pris/st
+                    </th>
+                    <th class="view-shoppingcart-table">
+                        Totalt pris
+                    </th>
+                </tr>               
+
+                @foreach (var item in Model)
+                {
+
+                    @Html.DisplayFor(modelItem => item.TotalAmountPerID)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td id="table-small-image">
+                            <img class="thumbnail img-responsive" id="shoppingcart-img" src="@item.imgUrl" />
+                        </td>
+                        <td>
+                            <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
+                            @Html.DisplayFor(modelItem => item.TotalAmountPerID)
+                            <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Price) kr/st*@
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new { item.ProductID })
+                        </td>
+                    </tr>
+                }
+            </table>
+            <center><a href="~/ShoppingCart/CheckOut" class="btn btn-default btn-lg" id="view-cart-button-to-checkout">Go forward to Checkout</a></center>
+        </div>
+    </section>
+</body>
+
 
 <h2>CheckOut</h2>
 
