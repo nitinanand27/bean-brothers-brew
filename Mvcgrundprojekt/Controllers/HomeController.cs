@@ -14,6 +14,7 @@ namespace Mvcgrundprojekt.Controllers
         {
             return View();
         }
+        [ChildActionOnly]
         public ActionResult shoppingCartPartial()
         {
             //skickar hela shoppingcart-listan till en partiaview
