@@ -4,9 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-
-
-    <body>
         <section class="view-shoppingcart-section">
             <div class="container-fluid">
 
@@ -26,6 +23,8 @@
 
                 }
                 @Html.ActionLink("Checkout", "Checkout")
+
+
 
                 <table class="table">
                     <tr>
@@ -52,6 +51,9 @@
 
                     @foreach (var item in Model)
             {
+                        <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
+                        @Html.DisplayFor(modelItem => item.TotalAmountPerID)
+                        <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.ProductID)
@@ -77,4 +79,3 @@
                 <a label="Go forward" href="~/Views/ShoppingCart/CheckOut.cshtml" class="btn btn-default btn-lg page-scroll">Go forward to Checkout</a>
             </div>
         </section>
-    </body>
