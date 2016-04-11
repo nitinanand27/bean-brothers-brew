@@ -3,10 +3,10 @@
 <br />
 <br />
 <br />
-<body class="view-shoppingcart-section-body">
-    <section class="view-shoppingcart-section">
+<body class="checkout-section-body">
+    <section class="checkout-section">
         <div class="container">
-            <h2 class="view-shoppingcart-header">Checkout</h2>
+            <h2 class="checkout-header">Checkout</h2>
 
             @{
                 if (Model.Any())
@@ -64,24 +64,38 @@
                     </tr>
                 }
             </table>
-            <center><a href="~/ShoppingCart/CheckOut" class="btn btn-default btn-lg" id="view-cart-button-to-checkout">Go forward to Checkout</a></center>
-        </div>
+
+            @*/* ------------------------------------------------------ */
+            /* Här kommer användarinformationen innan checkout */
+            /* ------------------------------------------------------ */*@
+
+            <br />
+            <hr />
+            <center><h2>User information</h2></center>
+            
+
+            @foreach (var item in Model.Take(1))
+            {
+                <div class="col-lg-12 text-center">
+                    @Html.DisplayFor(modelItem => item.Firstname) <text> </text>
+                    @Html.DisplayFor(modelItem => item.Lastname)<br />
+                    @Html.DisplayFor(modelItem => item.Address)<br />
+                    @Html.DisplayFor(modelItem => item.Personnumber)<br />
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)<br />
+                    @Html.DisplayFor(modelItem => item.Email)<br />
+                </div>
+            }
+
+
+                <center><a href="#" class="btn btn-default btn-lg" id="checkout-btn">Confirm Payment</a></center>
+            </div>
     </section>
 </body>
 
 
-<h2>CheckOut</h2>
 
-@foreach (var item in Model.Take(1)){
-            @Html.DisplayFor(modelItem => item.Firstname) <text> </text>
-            @Html.DisplayFor(modelItem => item.Lastname)<br />
-            @Html.DisplayFor(modelItem => item.Address)<br />
-            @Html.DisplayFor(modelItem => item.Personnumber)<br />
-            @Html.DisplayFor(modelItem => item.PhoneNumber)<br />
-            @Html.DisplayFor(modelItem => item.Email)<br />
-}
 
-<table class="table">
+@*<table class="table">
     <tr>
 
         <th>
@@ -122,7 +136,7 @@
                 @Html.DisplayFor(modelItem => item.totalPrice)
             </td>
         </tr>
-    }
+    }*@
 
 
-</table>
+@*</table>*@

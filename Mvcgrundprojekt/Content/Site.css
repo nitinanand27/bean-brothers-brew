@@ -433,11 +433,24 @@ only screen and (max-width: 760px),
 /* Section Finished-register  */
 /* ------------------------------------------------------ */
 
-.finished-register {
-    margin-top: 200px;
+.finished-register-section-body {
+    margin-top: 100px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(img/restaurant-hands-people-coffee.jpg);
     background-size: cover;
     color: #fff;
+}
+
+.finished-register-section {   
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.9;
+}
+
+#back-to-frontpage {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /* ------------------------------------------------------ */
@@ -502,7 +515,39 @@ only screen and (max-width: 760px),
     visibility:visible;
 }
 
+/* ------------------------------------------------------ */
+/* Section Finished-register  */
+/* ------------------------------------------------------ */
 
+.checkout-section-body {
+    
+    margin-top: 100px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(img/restaurant-hands-people-coffee.jpg);
+    background-size: cover;
+    color: #fff;
+}
+
+.checkout-section {   
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.9;
+}
+
+.checkout-header {
+    margin-top: 80px;
+}
+
+#shoppingcart-img {
+    max-width: 280px;
+    max-height: 230px; 
+}
+
+#checkout-btn {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
 
 /* ------------------------------------------------------ */
 /* Section Contact = Innehållet på sections */
