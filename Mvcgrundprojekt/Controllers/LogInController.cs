@@ -23,6 +23,7 @@ namespace Mvcgrundprojekt.Controllers
             var clearList = (List<ShoppingCartModel>)Session["shoppingCart"];
             clearList.Clear();
             Session["shoppingCart"] = clearList;
+            Session["amountInCart"] = 0;
             return Redirect("/Home");
         }
         public ActionResult Index(string email, string password)

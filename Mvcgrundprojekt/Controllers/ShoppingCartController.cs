@@ -21,8 +21,6 @@ namespace Mvcgrundprojekt.Controllers
             var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
             return View(shoppingCartList);
         }
-
-
         public ActionResult AddToCart(ProductModel inputCart)
         {
             //om man försöker läggga in saker i varukorgen utan att vara inloggad
@@ -163,7 +161,151 @@ namespace Mvcgrundprojekt.Controllers
             return Redirect("/product/index");
         }
 
-        //skall kommenteras!
+        //samma sak som vanliga "delete" förutom att den länkar tillbaka till shoppingcart istället för product
+        //vet fan inte hur jag ska lösa det bättre
+
+        public ActionResult DeleteInsideCart(ShoppingCartModel itemToDelete)
+        {
+            if (!(bool)Session["userLoggedIn"])
+            {
+                return Redirect("/login/index");
+            }
+            ////////////////////
+            //shoppingCartList[0] innehåller alltid totala priset på hela shoppingcarten!
+            ///////////////////
+            //hämtar shopping listan            
+            var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
+            //hämtar en lista på alla attribut av den produkt man vill ta bort och lägger i lista
+            var productList = (from x in (List<ProductModel>)Session["productList"]
+                               where x.ProductID == itemToDelete.ProductID
+                               select x).ToList();
+
+            //loopar igenom för att se om det redan finns en av samma i listan
+            for (int i = 0; i < shoppingCartList.Count(); i++)
+            {
+                //om det blir en match
+                if (shoppingCartList[i].ProductID == itemToDelete.ProductID)
+                {
+                    if (shoppingCartList[i].TotalAmountPerID == 0)
+                    {
+                        break;
+                    }
+                    //om det finns fler än en av produkten i listan
+                    if (shoppingCartList[i].TotalAmountPerID > 1)
+                    {
+                        //ta bort en från den produkten från listan
+                        var amountInCart = (int)Session["amountInCart"];
+                        amountInCart--;
+                        Session["amountInCart"] = amountInCart;
+                        shoppingCartList[i].TotalAmountPerID--;
+                        //justera priset 
+                        shoppingCartList[0].totalPrice -= productList[0].Price;
+                        Session["totalPrice"] = shoppingCartList[0].totalPrice;
+                    }
+                    else
+                    {
+                        var amountInCart = (int)Session["amountInCart"];
+                        amountInCart--;
+                        Session["amountInCart"] = amountInCart;
+                        //justera pris om det är den sista kvar av produkten i listan
+                        shoppingCartList[0].totalPrice -= productList[0].Price;
+                        Session["totalPrice"] = shoppingCartList[0].totalPrice;
+                        //ta bort produkten från listan
+                        shoppingCartList.RemoveAll(x => x.ProductID == itemToDelete.ProductID);
+                        //var newItemToCart = new ShoppingCartModel() { totalPrice = 0 };
+                        //shoppingCartList.Add(newItemToCart);                   
+                    }
+                }
+            }
+            if (shoppingCartList.Count() == 0)
+            {
+                Session["amountInCart"] = 0;
+            }
+            Session["shoppingCart"] = shoppingCartList;
+            return Redirect("/shoppingcart/index");
+        }
+
+        //samma sak som vanliga "addtocart" förutom att den länkar tillbaka till shoppingcart istället för product
+        //vet inte hur jag ska lösa på ett bra sätt...
+        public ActionResult AddToCartInsideCart(ProductModel inputCart)
+        {
+            //om man försöker läggga in saker i varukorgen utan att vara inloggad
+            if (!(bool)Session["userLoggedIn"])
+            {
+                return Redirect("/login/index");
+            }
+            var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
+            //om man kommer hit utan att ha klickat på "lägg till i varukorg"
+            //så skickas man tillbaka med en tom lista i view:n
+            if (inputCart.ProductID == 0)
+            {
+                return View(shoppingCartList);
+            }
+            //hämta produktlistan till en array så att productList[0] alltid är den produkten man får info om
+            //
+            var productList = (from x in (List<ProductModel>)Session["productList"]
+                               where x.ProductID == inputCart.ProductID
+                               select x).ToArray();
+            //skapa nytt objekt att lägga i kundvagnen och får sin info från productList[0].
+            var newItemToCart = new ShoppingCartModel()
+            {
+                ProductID = productList[0].ProductID,
+                Price = productList[0].Price,
+                ProductName = productList[0].ProductName,
+                TotalAmountPerID = 1,
+                imgUrl = productList[0].ImgUrl,
+                totalPrice = productList[0].Price,
+                userEmail = (string)Session["userName"]
+            };
+            //om listan är tom - lägg till produkten direkt
+            bool found = false;
+            if (shoppingCartList.Count() == 0)
+            {
+                //är det första saken in i shoppincarten så lägg till direkt och ändra priset på totalen
+                Session["totalPrice"] = newItemToCart.totalPrice;
+                Session["amountInCart"] = 1;
+                shoppingCartList.Add(newItemToCart);
+                return Redirect("/product/index");
+            }
+            //annars loopa igenonm listan            
+            else
+            {
+                for (int i = 0; i < shoppingCartList.Count(); i++)
+                {
+
+                    //kolla om produkten som ska in i listan redan finns
+                    if (shoppingCartList[i].ProductID == inputCart.ProductID)
+                    {
+                        //finns den så öka antalet av just den produkten med 1
+                        //och ändra totala priset med så mycket den kosatar
+                        shoppingCartList[0].totalPrice += productList[0].Price;
+                        shoppingCartList[i].TotalAmountPerID++;
+                        Session["totalPrice"] = shoppingCartList[0].totalPrice;
+                        found = true;
+                        break;
+                    }
+                }
+
+            }
+
+
+            if (!found)
+            {
+                //finns den inte i listan, så lägg till
+                shoppingCartList[0].totalPrice += productList[0].Price;
+                Session["totalPrice"] = shoppingCartList[0].totalPrice;
+                shoppingCartList.Add(newItemToCart);
+            }
+            var amountInCart = 0;
+            foreach (var item in shoppingCartList)
+            {
+                amountInCart += item.TotalAmountPerID;
+            }
+            Session["amountInCart"] = amountInCart;
+            Session["shoppingCart"] = shoppingCartList;
+            return Redirect("/shoppingcart/index");
+        }
+
         public ActionResult CheckOut ()
         {
             //kollar först om man är inloggad
