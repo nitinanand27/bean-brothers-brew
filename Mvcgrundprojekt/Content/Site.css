@@ -53,9 +53,9 @@ p {
     line-height: 1.5;
 }
 
-#products-container {
+/*#products-container {
     padding-left: 10%;
-}
+}*/
 
 /* ------------------------------------------------------ */
 /* Sätter texten längst upp åt vänster så den blir lite smalare */
@@ -299,10 +299,6 @@ a:focus {
     width: 60%;
 }
 
-.form-control {
-
-}
-
 .form-group { 
     /*width: 40%;*/
 }
@@ -311,9 +307,16 @@ a:focus {
 /* Section View shoppingcart  */
 /* ------------------------------------------------------ */
 
+.view-shoppingcart-section-body {
+    margin-top: 100px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(img/restaurant-hands-people-coffee.jpg);
+    background-size: cover;
+    color: #fff;
+}
+
 .view-shoppingcart-section {
-    width: 100%;
-    height: auto;
+    /*width: 100%;
+    height: 100%;*/
     background-color: #000000;
 }
 

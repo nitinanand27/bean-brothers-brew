@@ -3,14 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<body class="view-shoppingcart-section-body">
         <section class="view-shoppingcart-section">
-            <div class="container-fluid">
-
-
-
-                <h2 class="view-shoppingcart-header">Index</h2>
-
+            <div class="container">             
+                 <h2 class="view-shoppingcart-header">View shoppingcart</h2>
+                
                 @{
                     if (Model.Any())
                     {
@@ -22,9 +19,6 @@
                     }
 
                 }
-                @Html.ActionLink("Checkout", "Checkout")
-
-
 
                 <table class="table">
                     <tr>
@@ -50,7 +44,7 @@
                     </tr>
 
                     @foreach (var item in Model)
-            {
+                    {
                         <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
                         @Html.DisplayFor(modelItem => item.TotalAmountPerID)
                         <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
@@ -76,6 +70,7 @@
                         </tr>
                     }
                 </table>
-                <a label="Go forward" href="~/Views/ShoppingCart/CheckOut.cshtml" class="btn btn-default btn-lg page-scroll">Go forward to Checkout</a>
+                <center><a href="~/ShoppingCart/CheckOut" class="btn btn-default btn-lg" id="view-cart-button-to-checkout">Go forward to Checkout</a></center>
             </div>
-        </section>
+      </section>
+</body>
