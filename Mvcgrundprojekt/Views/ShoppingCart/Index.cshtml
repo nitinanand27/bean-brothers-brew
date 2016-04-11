@@ -24,6 +24,8 @@
                 }
                 @Html.ActionLink("Checkout", "Checkout")
 
+
+
                 <table class="table">
                     <tr>
                         <th>
@@ -49,6 +51,9 @@
 
                     @foreach (var item in Model)
             {
+                        <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
+                        @Html.DisplayFor(modelItem => item.TotalAmountPerID)
+                        <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.ProductID)

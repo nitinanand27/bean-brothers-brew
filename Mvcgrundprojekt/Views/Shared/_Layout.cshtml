@@ -46,8 +46,6 @@
                 <a class="navbar-brand page-scroll" href="~/Home/Index"> <!-- Länk till förstasidan -->
                     <span class="light">Brew</span> Brothers
                 </a>
-
-                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
 
             <!-- Lista med nav länkarna -->
@@ -103,31 +101,6 @@
 
                 </ul>
             </div>
-
-            <!-- ------------- Hur länkarna var innan ----------------------- -->
-            @*<li class="active"><a href="/User/Register">Register</a></li>
-            <li class="active"><a href="/Product/Index">Prudukter</a></li>
-            <li class="active"><a href="/Login/Index">Logga in</a></li>
-            <li class="active"><a href="/Login/LogOut">Logga ut</a></li>
-            <li class="active"><a href="/ShoppingCart/index">Shoppingcart</a></li>
-            <li class="active"><a>@Session["totalPrice"]</a></li>
-            <li class="active">
-                <a>
-                    @{
-                        var loggedIn = (bool)Session["userLoggedIn"];
-                        if (!loggedIn)
-                        {
-                            @Session["loggedInMessage"]
-                        }
-                        else
-                        {
-                            @Session["loggedInMessage"]
-                        }
-                    }
-
-                </a>
-            </li>*@
-
         </div>
     </nav>
 

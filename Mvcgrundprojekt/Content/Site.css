@@ -321,10 +321,6 @@ a:focus {
     margin-top: 200px;
 }
 
-.container-fluid {
-    width: 100%;
-    height: auto;
-}
 
 /* ------------------------------------------------------ */
 /* Section Finished-register  */
@@ -419,10 +415,10 @@ a:focus {
 }
 
 /* ------------------------------------------------------ */
-/* Section products */
+/* "Section - Till webshop" */
 /* ------------------------------------------------------ */
 
-.products-section {
+#products-container {
     width: 100%;
     height: 100%;
     padding: 150px 0;
@@ -431,8 +427,6 @@ a:focus {
     background-color: #000000;
     background-size: cover;
 }
-
-
 
 /* ------------------------------------------------------ */
 /* Button design = Hur den funkar och färger */
