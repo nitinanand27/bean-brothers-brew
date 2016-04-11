@@ -308,6 +308,36 @@ a:focus {
 }
 
 /* ------------------------------------------------------ */
+/* Section View shoppingcart  */
+/* ------------------------------------------------------ */
+
+.view-shoppingcart-section {
+    width: 100%;
+    height: auto;
+    background-color: #000000;
+}
+
+.view-shoppingcart-header {
+    margin-top: 200px;
+}
+
+.container-fluid {
+    width: 100%;
+    height: auto;
+}
+
+/* ------------------------------------------------------ */
+/* Section Finished-register  */
+/* ------------------------------------------------------ */
+
+.finished-register {
+    margin-top: 200px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(img/restaurant-hands-people-coffee.jpg);
+    background-size: cover;
+    color: #fff;
+}
+
+/* ------------------------------------------------------ */
 /* Section Webshop  */
 /* ------------------------------------------------------ */
 

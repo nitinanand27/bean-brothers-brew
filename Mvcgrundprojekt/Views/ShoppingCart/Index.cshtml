@@ -3,65 +3,78 @@
 @{
     ViewBag.Title = "Index";
 }
-@{
-if (Model.Any())
-{
-    <text>Total summa: </text> @Model.First().totalPrice
-    }
-    else
-    {
-        <text>Total summa: 0</text>
-    }
 
-}
-    @Html.ActionLink("Checkout", "Checkout")
 
-<h2>Index</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.imgUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalAmountPerID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.userEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.totalPrice)
-        </th>
-        <th></th>
-    </tr>
+    <body>
+        <section class="view-shoppingcart-section">
+            <div class="container-fluid">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            <img src="@item.imgUrl" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAmountPerID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { item.ProductID })
-        </td>
-    </tr>
-}
 
-</table>
+
+                <h2 class="view-shoppingcart-header">Index</h2>
+
+                @{
+                    if (Model.Any())
+                    {
+                        <text>Total summa: </text> @Model.First().totalPrice
+                    }
+                    else
+                    {
+                        <text>Total summa: 0</text>
+                    }
+
+                }
+                @Html.ActionLink("Checkout", "Checkout")
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.imgUrl)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TotalAmountPerID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.userEmail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.totalPrice)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                <img src="@item.imgUrl" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TotalAmountPerID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { item.ProductID })
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <a label="Go forward" href="~/Views/ShoppingCart/CheckOut.cshtml" class="btn btn-default btn-lg page-scroll">Go forward to Checkout</a>
+            </div>
+        </section>
+    </body>
