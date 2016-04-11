@@ -76,11 +76,13 @@
                             
                             @*<div>@Html.DisplayFor(modelItem => item.Description)</div>*@
                         </div>
+                        <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Ajax.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { item.ProductID }, new AjaxOptions { HttpMethod = "GET", OnSuccess = "window.location.reload()" }, new { @class = "add-to-cart-hyperlink" })</button>
 
-                        <button class="btn btn-default btn-lg" id="add-to-shoppingcart-btn"> @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { item.ProductID }, new { @class = "add-to-cart-hyperlink" }) </button>
                     </div>
                 }
             </div>
         </section>
-
+        <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
     </body>
