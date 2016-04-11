@@ -59,6 +59,7 @@ namespace Mvcgrundprojekt.Controllers
             {
                 //är det första saken in i shoppincarten så lägg till direkt och ändra priset på totalen
                 Session["totalPrice"] = newItemToCart.totalPrice;
+                Session["amountInCart"] = 1;
                 shoppingCartList.Add(newItemToCart);
                 return Redirect("/product/index");
             }
@@ -82,6 +83,8 @@ namespace Mvcgrundprojekt.Controllers
                 }
                 
             }
+
+
             if (!found)
             {
                 //finns den inte i listan, så lägg till
@@ -89,6 +92,12 @@ namespace Mvcgrundprojekt.Controllers
                 Session["totalPrice"] = shoppingCartList[0].totalPrice;
                 shoppingCartList.Add(newItemToCart);
             }
+            var amountInCart = 0;
+            foreach (var item in shoppingCartList)
+            {
+                amountInCart += item.TotalAmountPerID;
+            }
+            Session["amountInCart"] = amountInCart;
             Session["shoppingCart"] = shoppingCartList;
             return Redirect("/product/index");
         }
@@ -123,6 +132,9 @@ namespace Mvcgrundprojekt.Controllers
                     if (shoppingCartList[i].TotalAmountPerID > 1)
                     {
                         //ta bort en från den produkten från listan
+                        var amountInCart = (int)Session["amountInCart"];
+                        amountInCart--;
+                        Session["amountInCart"] = amountInCart;
                         shoppingCartList[i].TotalAmountPerID--;
                         //justera priset 
                         shoppingCartList[0].totalPrice -= productList[0].Price;
@@ -130,6 +142,9 @@ namespace Mvcgrundprojekt.Controllers
                     }
                     else
                     {
+                        var amountInCart = (int)Session["amountInCart"];
+                        amountInCart--;
+                        Session["amountInCart"] = amountInCart;
                         //justera pris om det är den sista kvar av produkten i listan
                         shoppingCartList[0].totalPrice -= productList[0].Price;
                         Session["totalPrice"] = shoppingCartList[0].totalPrice;
@@ -139,6 +154,10 @@ namespace Mvcgrundprojekt.Controllers
                         //shoppingCartList.Add(newItemToCart);                   
                     } 
                 }
+            }
+            if (shoppingCartList.Count() == 0)
+            {
+                Session["amountInCart"] = 0;
             }
             Session["shoppingCart"] = shoppingCartList;
             return Redirect("/product/index");

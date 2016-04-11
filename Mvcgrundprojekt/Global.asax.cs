@@ -28,6 +28,7 @@ namespace Mvcgrundprojekt
             Session["userLoggedIn"] = false;
             Session["admin"] = false;
             Session["totalPrice"] = 0;
+            Session["amountInCart"] = 0;
         }
     }
 }
