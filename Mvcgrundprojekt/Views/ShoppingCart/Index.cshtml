@@ -23,45 +23,37 @@
                 <table class="table">
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.ProductID)
+                            Produktnamn
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.ProductName)
+                            Bild
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.imgUrl)
+                            Antal
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.TotalAmountPerID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.userEmail)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.totalPrice)
+                            Totalt pris
                         </th>                       
                     </tr>
 
                     @foreach (var item in Model)
                     {
-                        <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
-                        @Html.DisplayFor(modelItem => item.TotalAmountPerID)
-                        <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
+                        
+                        @Html.DisplayFor(modelItem => item.TotalAmountPerID)                        
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ProductID)
-                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.ProductName)
                             </td>
-                            <td>
-                                <img src="@item.imgUrl" />
+                            <td id="table-small-image">
+                                <img class="thumbnail img-responsive" id="shoppingcart-img"src="@item.imgUrl" />
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.TotalAmountPerID)
                             </td>
                             <td>
+                                <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
                                 @Html.DisplayFor(modelItem => item.Price)
+                                <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
                             </td>
                             <td>
                                 @Html.ActionLink("Delete", "Delete", new { item.ProductID })

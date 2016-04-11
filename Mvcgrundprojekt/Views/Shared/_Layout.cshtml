@@ -72,13 +72,14 @@
                             <span class="glyphicon glyphicon-shopping-cart"></span> @Session["amountInCart"] - Items<span class="caret"></span>
                         </a>
 
-                        <ul class="dropdown-menu dropdown-cart" style="background-color:red;" role="menu">
+                        <!-- ------------- Här ändrar du färg på bakgrunden i shoppingcarten ----------------------- -->
+                        <ul class="dropdown-menu dropdown-cart" style="background-color:#C15A2D;" role="menu">
                             @{Html.RenderAction("shoppingCartPartial", "Home");}
                             
                             <li class="divider"></li>
                             <li><a class="text-center" href="/shoppingCart/index">View Cart</a></li>
                             <li><a class="text-center" style="color:black" href="/shoppingCart/CheckOut">Checkout</a></li>
-                            <li><a class="text-center" href="">Total: @Session["totalPrice"]</a></li>
+                            <li><a class="text-center" href="">Total: @Session["totalPrice"] kr</a></li>
                         </ul>
                     </li>
 

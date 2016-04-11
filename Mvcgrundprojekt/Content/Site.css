@@ -324,6 +324,11 @@ a:focus {
     margin-top: 200px;
 }
 
+#shoppingcart-img {
+    max-width: 280px;
+    max-height: 250px; 
+}
+
 /* ------------------------------------------------------ */
 /* Test-tabell  */
 /* ------------------------------------------------------ */
@@ -331,14 +336,18 @@ a:focus {
 /* 
 Generic Styling, for Desktops/Laptops 
 */
+#table-small-image {
+    width: 300px;
+}
+
 table { 
   width: 100%; 
   border-collapse: collapse; 
 }
 /* Zebra striping */
-tr:nth-of-type(odd) { 
+/*tr:nth-of-type(odd) { 
   background: #eee; 
-}
+}*/
 th { 
   background: #333; 
   color: white; 
@@ -395,7 +404,7 @@ only screen and (max-width: 760px),
 	/*
 	Label the data
 	*/
-	td:nth-of-type(1):before { content: "First Name"; }
+	/*td:nth-of-type(1):before { content: "First Name"; }
 	td:nth-of-type(2):before { content: "Last Name"; }
 	td:nth-of-type(3):before { content: "Job Title"; }
 	td:nth-of-type(4):before { content: "Favorite Color"; }
@@ -404,7 +413,7 @@ only screen and (max-width: 760px),
 	td:nth-of-type(7):before { content: "Date of Birth"; }
 	td:nth-of-type(8):before { content: "Dream Vacation City"; }
 	td:nth-of-type(9):before { content: "GPA"; }
-	td:nth-of-type(10):before { content: "Arbitrary Data"; }
+	td:nth-of-type(10):before { content: "Arbitrary Data"; }*/
 }
 
 /* ------------------------------------------------------ */
