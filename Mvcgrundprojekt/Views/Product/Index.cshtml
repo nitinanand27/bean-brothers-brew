@@ -25,12 +25,12 @@
                 <div class="col-lg-12" id="seach-for-products-text">
                     <br />
                     <br />
-                    @using (Html.BeginForm("index", "product"))
-                    {   
-                                <!-- Hur får man texten svaaaaaaaart?  -->
-                        @Html.TextBox("Search..", null, new { @class = "search-for-products-text" })
-                        <input class="search-for-products" value="Search" id="submit" type="submit" />
-                    }
+                    <form action="/Product/" method="post" class="form-inline">
+                        <div class="form-group">
+                            <input class="form-control" name="search" placeholder="Search" type="text" />
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form><br><br>
                     <br />
                     @{
                         if ((bool)Session["admin"])

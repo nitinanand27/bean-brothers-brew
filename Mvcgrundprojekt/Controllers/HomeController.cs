@@ -16,6 +16,7 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult shoppingCartPartial()
         {
+            //skickar hela shoppingcart-listan till en partiaview
             var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
             return PartialView(shoppingCartList);
         }
