@@ -315,18 +315,24 @@ a:focus {
 }
 
 .view-shoppingcart-section {
-    /*width: 100%;
-    height: 100%;*/
+    width: 100%;
+    height: 100%;
     background-color: #000000;
+    opacity: 0.9;
 }
 
 .view-shoppingcart-header {
-    margin-top: 200px;
+    margin-top: 80px;
 }
 
 #shoppingcart-img {
     max-width: 280px;
-    max-height: 250px; 
+    max-height: 230px; 
+}
+
+#view-cart-button-to-checkout {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /* ------------------------------------------------------ */
@@ -340,10 +346,10 @@ Generic Styling, for Desktops/Laptops
     width: 300px;
 }
 
-table { 
+/*table { 
   width: 100%; 
   border-collapse: collapse; 
-}
+}*/
 /* Zebra striping */
 /*tr:nth-of-type(odd) { 
   background: #eee; 
@@ -353,11 +359,14 @@ th {
   color: white; 
   font-weight: bold; 
 }
-td, th { 
+
+/* Kan ta bort borders, hör om vi ska köra utan  */
+
+/*td, th { 
   padding: 6px; 
   border: 1px solid #ccc; 
   text-align: left; 
-}
+}*/
 
 /* 
 Max width before this PARTICULAR table gets nasty
@@ -382,8 +391,9 @@ only screen and (max-width: 760px),
 	
 	tr { border: 1px solid #ccc; }
 	
-	td { 
-		/* Behave  like a "row" */
+    /*Behave  like a "row"*/
+
+	td {	  
 		border: none;
 		border-bottom: 1px solid #eee; 
 		position: relative;
