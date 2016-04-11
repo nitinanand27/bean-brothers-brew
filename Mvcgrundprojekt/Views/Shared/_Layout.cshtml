@@ -37,7 +37,7 @@
 <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <!-- Texten och knapp för att komma till toppen. -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -58,13 +58,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="~/Home/Index">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="~/Product/Index">Webshop</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="~/Home/Index">Contact</a>
                     </li>
 
                     <!-- ------------- Dropdown shoppingcart ----------------------- -->
@@ -76,69 +76,14 @@
 
                         <ul class="dropdown-menu dropdown-cart" style="background-color:red;" role="menu">
                             @{Html.RenderAction("shoppingCartPartial", "Home");}
-                            @*<li>
-                        <span class="item">
-                            <span class="item-left">
-                                <img src="http://lorempixel.com/50/50/" alt="" />
-                                <span class="item-info">
-                                    <span>Item name</span>
-                                    <span>23$</span>
-                                </span>
-                            </span>
-                            <span class="item-right">
-                                <button class="btn btn-xs btn-danger pull-right">x</button>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="item">
-                            <span class="item-left">
-                                <img src="http://lorempixel.com/50/50/" alt="" />
-                                <span class="item-info">
-                                    <span>Item name</span>
-                                    <span>23$</span>
-                                </span>
-                            </span>
-                            <span class="item-right">
-                                <button class="btn btn-xs btn-danger pull-right">x</button>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="item">
-                            <span class="item-left">
-                                <img src="http://lorempixel.com/50/50/" alt="" />
-                                <span class="item-info">
-                                    <span>Item name</span>
-                                    <span>23$</span>
-                                </span>
-                            </span>
-                            <span class="item-right">
-                                <button class="btn btn-xs btn-danger pull-right">x</button>
-                            </span>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="item">
-                            <span class="item-left">
-                                <img src="http://lorempixel.com/50/50/" alt="" />
-                                <span class="item-info">
-                                    <span>Item name</span>
-                                    <span>23$</span>
-                                </span>
-                            </span>
-                            <span class="item-right">
-                                <button class="btn btn-xs btn-danger pull-right">x</button>
-                            </span>
-                        </span>
-                    </li>*@
-
+                            
                             <li class="divider"></li>
                             <li><a class="text-center" href="/shoppingCart/index">View Cart</a></li>
                             <li><a class="text-center" style="color:black" href="/shoppingCart/CheckOut">Checkout</a></li>
                             <li><a class="text-center" href="">Total: @Session["totalPrice"]</a></li>
                         </ul>
                     </li>
+
                     <!-- ------------- slutet av shoppingcart ----------------------- -->
                     @{
                         if ((bool)Session["userLoggedIn"])
