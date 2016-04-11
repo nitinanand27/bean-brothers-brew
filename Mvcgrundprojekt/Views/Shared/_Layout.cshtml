@@ -34,6 +34,7 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
 </head>
+
 <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -82,9 +83,9 @@
                             @{Html.RenderAction("shoppingCartPartial", "Home");}
                             
                             <li class="divider"></li>
-                            <li><a class="text-center" href="/shoppingCart/index">View Cart</a></li>
-                            <li><a class="text-center" style="color:black" href="/shoppingCart/CheckOut">Checkout</a></li>
-                            <li><a class="text-center" href="">Total: @Session["totalPrice"] &dollar;</a></li>
+                            <li><a class="text-center" id="view-cart-nav" href="/shoppingCart/index">View Cart</a></li>
+                            <li><a class="text-center" id="checkout-nav" style="color:black" href="/shoppingCart/CheckOut">Checkout</a></li>
+                            <li><p class="text-center">Total: @Session["totalPrice"] &dollar;</p></li>
                         </ul>
                     </li>
 

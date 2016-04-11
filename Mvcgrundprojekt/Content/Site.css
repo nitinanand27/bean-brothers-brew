@@ -22,6 +22,11 @@ ul
     list-style-type: none;
 }
 
+.content-section {
+    padding-top: 100px;
+    width: 100%;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -112,6 +117,18 @@ h6 {
 /* ------------------------------------------------------ */
 /* Hyperlänkarnas design */
 /* ------------------------------------------------------ */
+
+
+
+#view-cart-nav:hover, #view-cart-nav:focus {
+    text-decoration: none;
+    color: #000 !important;
+}
+
+#checkout-nav:hover, #checkout-nav:focus {
+    text-decoration: none;
+    color: #000 !important;
+}
 
 a {
     color: #fff !important;
@@ -558,13 +575,22 @@ only screen and (max-width: 760px),
 }
 
 /* ------------------------------------------------------ */
-/* Section content = Innehållet på sections */
+/* Section About */
 /* ------------------------------------------------------ */
 
-.content-section {
-    padding-top: 100px;
-    width: 100%;
+#about-link {
+    color: #C15A2D !important;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }
+
+#about-link:hover, #about-link:focus {
+    text-decoration: none;
+    color: #ff5105 !important;
+}
+
+
 
 /* ------------------------------------------------------ */
 /* "Section - Till webshop" */
