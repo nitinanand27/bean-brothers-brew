@@ -345,6 +345,7 @@ namespace Mvcgrundprojekt.Controllers
 
                     //lägger in infon om vilka produkter som skall köpas i produktlistan
                     //går igenom hela listan och lägger till det som finns
+                    PricePerProduct = shoppingCartList[0].Price,
                     ProductName = shoppingCartList[0].ProductName,
                     imgUrl = shoppingCartList[0].imgUrl,
                     totalPrice = shoppingCartList[0].totalPrice,

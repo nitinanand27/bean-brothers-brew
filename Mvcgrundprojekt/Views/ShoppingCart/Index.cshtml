@@ -14,30 +14,30 @@
                 @{
                     if (Model.Any())
                     {
-                        <text>Total summa: </text> @Model.First().totalPrice
+                        <text>Total: </text> @Model.First().totalPrice
                     }
                     else
                     {
-                        <text>Total summa: 0</text>
-                    }
+                        <text>Total: 0 &dollar;</text>
+    }
 
-                }               
+}               
                     <table class="table">
                         <tr>
                             <th class="view-shoppingcart-table">
-                                Produktnamn
+                                Product
                             </th>
                             <th class="view-shoppingcart-table">
-                                Bild
+                               
                             </th>
                             <th class="view-shoppingcart-table">
-                                Antal
+                                Amount
                             </th>
                             <th class="view-shoppingcart-table">
-                                Pris/st
+                                &#x00024; / each
                             </th>
                             <th class="view-shoppingcart-table">
-                                Totalt pris
+                                Total
                             </th>
                         </tr>
 
@@ -58,10 +58,13 @@
                                     <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Price) kr/st
+                                    @Html.DisplayFor(modelItem => item.Price) &dollar;
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Delete", "Delete", new { item.ProductID })
+                                    @{
+                                        int total = item.TotalAmountPerID * item.Price;
+                                    }
+                                    @total
                                 </td>
                             </tr>
                         }

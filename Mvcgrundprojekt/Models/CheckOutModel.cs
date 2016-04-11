@@ -11,6 +11,7 @@ namespace Mvcgrundprojekt.Models
         public string ProductName { get; set; }
         public string imgUrl { get; set; }
         public int TotalAmountPerID { get; set; }
+        public int PricePerProduct { get; set; }
         public string Email { get; set; }
         public int totalPrice { get; set; }
         public string Firstname { get; set; }
