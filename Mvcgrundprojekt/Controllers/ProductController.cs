@@ -45,6 +45,10 @@ namespace Mvcgrundprojekt.Controllers
             //och hittar den gamla produkten och skriver över den
             if (input.Description != null)
             {
+                if (input.ImgUrl == null)
+                {
+                    input.ImgUrl = "https://pixabay.com/static/uploads/photo/2015/08/01/23/08/coffee-870817_960_720.jpg";
+                }
                 //hämtar listan
                 var productList = (List<ProductModel>)Session["productList"];
                 //skapar ny ProductModel från vad som kommer ifrån formuläret
@@ -98,6 +102,10 @@ namespace Mvcgrundprojekt.Controllers
             //kollar att den som är inloggad är admin och att inmatningen inte är null
             if ((bool)Session["admin"] && input.ProductType != null)
             {
+                if (input.ImgUrl == null)
+                {
+                    input.ImgUrl = "https://pixabay.com/static/uploads/photo/2015/08/01/23/08/coffee-870817_960_720.jpg";
+                }
                 //hämtar listan med produkter
                 var lista = (List<ProductModel>)Session["productList"];
                 //skapar nytt objekt av ProductModel från det som kommer ifrån view:n
