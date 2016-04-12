@@ -11,9 +11,6 @@
         <div class="container">
             <h2 class="view-shoppingcart-header">View shoppingcart</h2>
 
-            <div class="text-right" style="margin-right:10%">
-                Total cost: @Session["totalPrice"] &dollar;
-            </div>
             <table class="table">
                 <tr>
                     <th class="view-shoppingcart-table">
@@ -61,6 +58,9 @@
                                 }
             </table>
             <hr />
+            <div class="text-right">
+                Total cost: @Session["totalPrice"] &dollar;
+            </div>
             <center><a href="~/ShoppingCart/CheckOut" class="btn btn-default btn-lg" id="view-cart-button-to-checkout">Proceed to Checkout</a></center>
         </div>
     </section>

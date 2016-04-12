@@ -572,6 +572,12 @@ only screen and (max-width: 760px),
 /* Section Checkout-section */
 /* ------------------------------------------------------ */
 
+.text-right {
+    margin-right:5%;
+    font-size: 200%;
+    font-weight: 500;
+}
+
 .checkout-section-body {
     
     margin-top: 100px;
