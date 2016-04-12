@@ -33,14 +33,15 @@
             <br /><br /><br /><br />
 
 
-            Total cost: @Session["totalPrice"] &dollar;
+            <div class="text-right" style="margin-right:10%">
+                Total cost: @Session["totalPrice"] &dollar;
+            </div>
             <table class="table">
                 <tr>
                     <th class="view-shoppingcart-table">
                         Product
                     </th>
-                    <th class="view-shoppingcart-table">
-                        
+                    <th class="view-shoppingcart-table">                        
                     </th>
                     <th class="view-shoppingcart-table">
                         Amount
@@ -63,9 +64,7 @@
                             <img class="thumbnail img-responsive" id="shoppingcart-img" src="@item.imgUrl" />
                         </td>
                         <td>
-                            <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
                             @Html.DisplayFor(modelItem => item.TotalAmountPerID)
-                            <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
                         </td>
                         <td>
                             @item.PricePerProduct &dollar;
