@@ -9,6 +9,7 @@ namespace Mvcgrundprojekt.Controllers
 {
     public class ShoppingCartController : Controller
     {
+        List<CheckOutModel> checkOutList = new List<CheckOutModel>();
         // GET: ShoppingCart
         public ActionResult Index ()
         {
@@ -23,6 +24,12 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult CompletedOrder ()
         {
+            var clearList = (List<ShoppingCartModel>)Session["shoppingCart"];
+            clearList.Clear();
+            Session["shoppingCart"] = clearList;
+            Session["amountInCart"] = 0;
+            checkOutList.Clear();
+            Session["totalPrice"] = 0;
             if (!(bool)Session["userLoggedIn"])
             {
                 return Redirect("/home/index");
@@ -352,7 +359,7 @@ namespace Mvcgrundprojekt.Controllers
                             select x).ToArray();
 
             //skapar en ny lista med vad som skall checkas ut!
-            var checkOutList = new List<CheckOutModel>();
+            
 
             //för varje produkt i shoppingcarten så kopieras användarens information och informationen om vilka produkter som ska med
             foreach (var item in shoppingCartList)
@@ -370,12 +377,13 @@ namespace Mvcgrundprojekt.Controllers
 
                     //lägger in infon om vilka produkter som skall köpas i produktlistan
                     //går igenom hela listan och lägger till det som finns
-                    PricePerProduct = shoppingCartList[0].Price,
-                    ProductName = shoppingCartList[0].ProductName,
-                    imgUrl = shoppingCartList[0].imgUrl,
+
+                    PricePerProduct = item.Price,
+                    ProductName = item.ProductName,
+                    imgUrl = item.imgUrl,
                     totalPrice = shoppingCartList[0].totalPrice,
-                    ProductID = shoppingCartList[0].ProductID,
-                    TotalAmountPerID = shoppingCartList[0].TotalAmountPerID,
+                    ProductID = item.ProductID,
+                    TotalAmountPerID = item.TotalAmountPerID,
                 };
                 //lägger in grejer checkout-listan
                 checkOutList.Add(newCheckOut);

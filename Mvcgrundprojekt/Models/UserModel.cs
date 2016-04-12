@@ -9,34 +9,35 @@ namespace Mvcgrundprojekt.Models
     public class UserModel
     {
         //Förnamn
-        [Required(ErrorMessage = "Förnamn krävs")]  
+        [Required(ErrorMessage = "Firstname required")]  
         public string Firstname { get; set; }
 
         //Efternamn
-        [Required(ErrorMessage = "Efternamn krävs")]
+        [Required(ErrorMessage = "Lastname required")]
         public string Lastname { get; set; }
 
         //Lösenord
-        [Required(ErrorMessage = "Lösenord ")]
+        [Required(ErrorMessage = "Password ")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         //Måste ha en korrekt email, ett regular expression kollar att det stämmer
-        [Required(ErrorMessage = "Email krävs")]
+        [Required(ErrorMessage = "Email required")]
         [RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Måste vara en korrekt email")]
         public string Email { get; set; }
         
         //Adress krävs
-        [Required(ErrorMessage = "Adress krävs")]
+        [Required(ErrorMessage = "Address required")]
         public string Address { get; set; }
 
         //Behöver personnummer, måste vara 10 siffror långt
-        [Required(ErrorMessage = "Personnummer krävs")]
+        [Required(ErrorMessage = "Personal number required")]
         [StringLength(10, MinimumLength = 10, ErrorMessage = "ex: 8606114679")]
         public string Personnumber { get; set; }
 
         //Telefonnummer, måste vara mellan 6 och 10
-        [Required(ErrorMessage = "Telefonnummer krävs")]
-        [StringLength(10, MinimumLength = 6, ErrorMessage = "Måste vara mellan 6 och 10 siffror")]
+        [Required(ErrorMessage = "Phonenumber required")]
+        [StringLength(10, MinimumLength = 6, ErrorMessage = "Have to be between 6 and 10")]
         public string PhoneNumber { get; set; }
         
         //Sätter om användaren är admin eller inte, den är false som standard i controllern
