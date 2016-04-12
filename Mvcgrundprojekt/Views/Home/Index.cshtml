@@ -16,26 +16,28 @@
                         <h1 class="brand-heading">Bean Brothers Brew</h1>
                         <!-- En knapp där vi kan göra om och hänvisa dit vi vill. Eventuellt ha 2-3 knappar, just nu är den anchor i "about". -->
                         <!-- Göra en If / Else att inloggingsrutan ej ska visas, om man är inloggad. -->
-                        @{
-                            if (!(bool)Session["userLoggedIn"])
-                            {
-                                <form action="/LogIn/Index" method="post" class="form-inline">
-                                    <div class="form-group">
-                                        <input class="form-control" name="email" placeholder="Email" />
-                                        <input class="form-control" name="password" placeholder="Password" type="password" />
-                                    </div>
+                        <div class="login-box">
+                            @{
+                                if (!(bool)Session["userLoggedIn"])
+                                {
+                                    <form action="/LogIn/Index" method="post" class="form-inline">
+                                        <div class="form-group">
+                                            <input class="form-control" name="email" placeholder="Email" />
+                                            <input class="form-control" name="password" placeholder="Password" type="password" />
+                                        </div>
 
-                                    <button type="submit" class="btn btn-default">Login</button>
-                                </form><br><br>
+                                        <button type="submit" class="btn btn-default">Login</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <a href="#about" class="btn btn-default btn-lg page-scroll" id="intro-button-after-login">Börja att läsa om oss</a>
+                                }
                             }
-                            else
-                            {
-
-                            }
-                        }
-
+                        </div>
+                        <br><br><br>
                         @*<a href="#page-top" id="intro-button" class="btn btn-default btn-lg">@Session["loggedInMessage"] </a>*@
-                        <!-- <p class="intro-text">Good coffee from three famous brothers who lives in Gothenburg. So lean back, drink, relax and enjoy!</p> -->
+                        <!-- <p class="intro-text">Good coffee from three famous bro's who lives in Gothenburg. So lean back, drink, relax and enjoy!</p> -->
                         
                     </div>
                 </div>
@@ -56,12 +58,12 @@
         </div>
     </section>
 
-    <!-- Denna sektionen som gör sidoscroll på första sidan. Något med containern -->
-    <!-- Till webshop Section -->
+    <!-- Banner för att gå vidare till andra sidor -->
+    <!-- "Till webshop" Section -->
     <section id="products" class="content-section">
         <div class="container-fluid" id="products-container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-8 col-md-8 col-md-offset-8 col-sm-8 col-sm-offset-8">
+                <div class="col-lg-2 col-md-2 col-sm-2" id="banner-firstpage">
                     <h2 id="banner-header-firstpage">Intressant?</h2>
                     <a href="~/Product/Index" class="btn btn-default btn-lg">Börja handla i Webshop</a><br><br>
                     <a href="#page-top" class="btn btn-default btn-lg page-scroll">Till början av hemsidan</a>
