@@ -21,6 +21,14 @@ namespace Mvcgrundprojekt.Controllers
             var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
             return View(shoppingCartList);
         }
+        public ActionResult CompletedOrder ()
+        {
+            if (!(bool)Session["userLoggedIn"])
+            {
+                return Redirect("/home/index");
+            }
+            return View();
+        }
         public ActionResult AddToCart(ProductModel inputCart)
         {
             if (inputCart.ProductID == 0)
@@ -235,7 +243,7 @@ namespace Mvcgrundprojekt.Controllers
                 Session["amountInCart"] = 0;
             }
             Session["shoppingCart"] = shoppingCartList;
-            return Redirect("/shoppingcart/index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         //samma sak som vanliga "addtocart" förutom att den länkar tillbaka till shoppingcart istället för product
@@ -320,7 +328,7 @@ namespace Mvcgrundprojekt.Controllers
             }
             Session["amountInCart"] = amountInCart;
             Session["shoppingCart"] = shoppingCartList;
-            return Redirect("/shoppingcart/index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         public ActionResult CheckOut ()
