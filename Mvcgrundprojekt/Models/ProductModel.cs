@@ -31,7 +31,7 @@ namespace Mvcgrundprojekt.Models
             {
                 new ProductModel () {
                     ProductID = 1,
-                    ProductName = "Guatemala Santa Isabel",
+                    ProductName = "Santa Isabel",
                     ProductType = "Grounded",
                     ProductCountry = "Guatemala",
                     Price = 120,
@@ -51,7 +51,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 3,
-                    ProductName = "India Monsoon Malabar",
+                    ProductName = "Monsoon Malabar",
                     ProductType = "Bean",
                     ProductCountry = "India",
                     Price = 130,
@@ -61,7 +61,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 4,
-                    ProductName = "Colombia Popayan La Sierra",
+                    ProductName = "Popayan La Sierra",
                     ProductType = "Grounded",
                     ProductCountry = "Colombia",
                     Price = 110,
@@ -71,7 +71,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 5,
-                    ProductName = "Guatemala Santa Isabel",
+                    ProductName = "Santa Isabel",
                     ProductType = "Grounded",
                     ProductCountry = "Guatemala",
                     Price = 111,
@@ -81,7 +81,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 6,
-                    ProductName = "Champs Coffee #EUROMTB",
+                    ProductName = "Champs Coffee",
                     ProductType = "Grounded",
                     ProductCountry = "Indonesia",
                     Price = 110,
@@ -111,7 +111,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 9,
-                    ProductName = "Sumatra Gayo Mountain",
+                    ProductName = "Gayo Mountain",
                     ProductType = "Grounded",
                     ProductCountry = "Indonesia",
                     Price = 99,
@@ -131,7 +131,7 @@ namespace Mvcgrundprojekt.Models
                 },
                     new ProductModel () {
                     ProductID = 11,
-                    ProductName = "Elida - Natural - Panama",
+                    ProductName = "Elida Natural",
                     ProductType = "Grounded",
                     ProductCountry = "Panama",
                     Price = 129,

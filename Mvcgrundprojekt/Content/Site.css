@@ -222,7 +222,11 @@ a:focus {
 .navbar-custom .nav li.active a:hover {
     color: #ffffff;
 }
-
+/*Ändrar färgen på den lilla pilen*/
+.caret {
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
 /* ----------------------------------------------------------------  */
 /* Ger den coola effekten i NAV-baren, @media för olika upplösningar */
 /* Ta bort den och det blir svart hela tiden, funkar också            */

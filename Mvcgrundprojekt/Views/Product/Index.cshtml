@@ -37,10 +37,7 @@
                         {
                             @Html.ActionLink("Add new product", "AddNewProduct")  <br /><br />
                         }
-                    }                    
-                    @*@Html.ActionLink("Edit", "Edit", new { item.ProductID }) |
-                    @Html.ActionLink("Lägg till i varukorg", "AddToCart", "ShoppingCart", new { item.ProductID }, null) |
-                    @Html.ActionLink("Delete", "Delete", new { item.ProductID })*@
+                    }  
                 </div>
                 <br />
 
@@ -56,8 +53,6 @@
                         <div class="col-md-12  col-sm-12" id="product-sammanfattning">
 
                             <p id="product-text">@Html.DisplayFor(modelItem => item.ProductName)</p>
-                            <p id="product-text">ID: @Html.DisplayFor(modelItem => item.ProductID)</p>
-                            <p id="product-text">Name: @Html.DisplayFor(modelItem => item.ProductName)</p>
                             <p id="product-text">Type: @Html.DisplayFor(modelItem => item.ProductType)</p>
                             <p id="product-text">Country: @Html.DisplayFor(modelItem => item.ProductCountry)</p>
                             <p id="product-text">Price: @Html.DisplayFor(modelItem => item.Price)</p>
