@@ -6,18 +6,8 @@
 <body class="checkout-section-body">
     <section class="checkout-section">
         <div class="container">
-            <h2 class="checkout-header">Checkout</h2>
-
-            @{
-                if (Model.Any())
-                {
-                    <text>Total: </text> @Model.First().totalPrice
-    }
-    else
-    {
-                    <text>Total: 0 &dollar;</text>
-                }
-             }
+            <h2 class="checkout-header">Confirm order</h2>
+            Total cost: @Session["totalPrice"] &dollar;
             <table class="table">
                 <tr>
                     <th class="view-shoppingcart-table">
@@ -39,7 +29,6 @@
 
                 @foreach (var item in Model)
                 {
-                    @Html.DisplayFor(modelItem => item.TotalAmountPerID)
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.ProductName)
@@ -53,13 +42,14 @@
                             <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
                         </td>
                         <td>
-                            @item.PricePerProduct
+                            @item.PricePerProduct &dollar;
                         </td>
                         <td>
                             @{ 
                                 int price = item.PricePerProduct * item.TotalAmountPerID;
+                                string total = price.ToString() + " " + "$";
                             }
-                            @price
+                            @total
                         </td>
                     </tr>
                 }
@@ -85,9 +75,7 @@
                     @Html.DisplayFor(modelItem => item.Email)<br />
                 </div>
             }
-
-
-                <center><a href="#" class="btn btn-default btn-lg" id="checkout-btn">Confirm Payment</a></center>
+                <center><a href="/ShoppingCart/CompletedOrder" class="btn btn-default btn-lg" id="checkout-btn">Confirm Payment</a></center>
             </div>
     </section>
 </body>

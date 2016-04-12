@@ -7,69 +7,60 @@
 <br />
 <br />
 <body class="view-shoppingcart-section-body">
-        <section class="view-shoppingcart-section">
-            <div class="container">             
-                 <h2 class="view-shoppingcart-header">View shoppingcart</h2>
-                
-                @{
-                    if (Model.Any())
-                    {
-                        <text>Total: </text> @Model.First().totalPrice
-                    }
-                    else
-                    {
-                        <text>Total: 0 &dollar;</text>
-    }
+    <section class="view-shoppingcart-section">
+        <div class="container">
+            <h2 class="view-shoppingcart-header">View shoppingcart</h2>
 
-}               
-                    <table class="table">
-                        <tr>
-                            <th class="view-shoppingcart-table">
-                                Product
-                            </th>
-                            <th class="view-shoppingcart-table">
-                                 
-                            </th>
-                            <th class="view-shoppingcart-table">
-                                Amount
-                            </th>
-                            <th class="view-shoppingcart-table">
-                                &#x00024; / each
-                            </th>
-                            <th class="view-shoppingcart-table">
-                                Total
-                            </th>
-                        </tr>
+            Total cost: @Session["totalPrice"] &dollar;
 
-                        @foreach (var item in Model)
-                        {
+            <table class="table">
+                <tr>
+                    <th class="view-shoppingcart-table">
+                        Product
+                    </th>
+                    <th class="view-shoppingcart-table">
 
+                    </th>
+                    <th class="view-shoppingcart-table">
+                        Amount
+                    </th>
+                    <th class="view-shoppingcart-table">
+                        &#x00024; / each
+                    </th>
+                    <th class="view-shoppingcart-table">
+                        Total
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td id="table-small-image">
+                            <img class="thumbnail img-responsive" id="shoppingcart-img" src="@item.imgUrl" />
+                        </td>
+                        <td>
+                            <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
                             @Html.DisplayFor(modelItem => item.TotalAmountPerID)
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ProductName)
-                                </td>
-                                <td id="table-small-image">
-                                    <img class="thumbnail img-responsive" id="shoppingcart-img" src="@item.imgUrl" />
-                                </td>
-                                <td>
-                                    <a href="@Url.Action("AddToCartInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-plus"></span></a>
-                                    @Html.DisplayFor(modelItem => item.TotalAmountPerID)
-                                    <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Price) &dollar;
-                                </td>
-                                <td>
-                                    @{
-                                        int total = item.TotalAmountPerID * item.Price;
-                                    }
-                                    @total
-                                </td>
-                            </tr>
-                        }
-                    </table>
-                    <center><a href="~/ShoppingCart/CheckOut" class="btn btn-default btn-lg" id="view-cart-button-to-checkout">Go forward to Checkout</a></center>
-                </div>
-      </section>
+                            <a href="@Url.Action("DeleteInsideCart", "ShoppingCart", new { item.ProductID })"><span class="glyphicon glyphicon-minus"></span></a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price) &dollar;
+                        </td>
+                        <td>
+                            @{
+                                int price = item.Price * item.TotalAmountPerID;
+                                string total = price.ToString() + " " + "$";
+                            }
+                            @total
+                        </td>
+                    </tr>
+                                }
+            </table>
+            <center><a href="~/ShoppingCart/CheckOut" class="btn btn-default btn-lg" id="view-cart-button-to-checkout">Go forward to Checkout</a></center>
+        </div>
+    </section>
+
 </body>

@@ -23,6 +23,10 @@ namespace Mvcgrundprojekt.Controllers
         }
         public ActionResult AddToCart(ProductModel inputCart)
         {
+            if (inputCart.ProductID == 0)
+            {
+                Redirect("Product/Index");
+            }
             //om man försöker läggga in saker i varukorgen utan att vara inloggad
             if (!(bool)Session["userLoggedIn"])
             {
@@ -102,6 +106,11 @@ namespace Mvcgrundprojekt.Controllers
         //ta bort från shoppinglistan
         public ActionResult Delete(ShoppingCartModel itemToDelete)
         {
+
+            if (itemToDelete.ProductID == 0)
+            {
+                Redirect("Product/Index");
+            }
             if (!(bool)Session["userLoggedIn"])
             {
                 return Redirect("/login/index");
@@ -166,6 +175,10 @@ namespace Mvcgrundprojekt.Controllers
 
         public ActionResult DeleteInsideCart(ShoppingCartModel itemToDelete)
         {
+            if (itemToDelete.ProductID == 0)
+            {
+                Redirect("Product/Index");
+            }
             if (!(bool)Session["userLoggedIn"])
             {
                 return Redirect("/login/index");
@@ -229,6 +242,10 @@ namespace Mvcgrundprojekt.Controllers
         //vet inte hur jag ska lösa på ett bra sätt...
         public ActionResult AddToCartInsideCart(ProductModel inputCart)
         {
+            if (inputCart.ProductID == 0)
+            {
+                Redirect("Product/Index");
+            }
             //om man försöker läggga in saker i varukorgen utan att vara inloggad
             if (!(bool)Session["userLoggedIn"])
             {
@@ -308,20 +325,20 @@ namespace Mvcgrundprojekt.Controllers
 
         public ActionResult CheckOut ()
         {
+            var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
+            if (shoppingCartList.Count() == 0)
+            {
+                
+                return Redirect("/shoppingcart/index");
+            }
             //kollar först om man är inloggad
             if (!(bool)Session["userLoggedIn"])
             {
                 return Redirect("/login/index");
             }
             //hämtar hela shoppingcart-listan
-            var shoppingCartList = (List<ShoppingCartModel>)Session["shoppingCart"];
             //hämtar vilken användare det är, jämför Email med session-objektet = ["userName"]
             // för att få användar-info och lägger allting i en array, så man kan använda user[0] för att lätt komma åt infon
-            if (shoppingCartList.Count() == 0)
-            {
-                var newItemToCart = new ShoppingCartModel();
-                shoppingCartList.Add(newItemToCart);
-            }
             var user = (from x in (List<UserModel>)Session["userList"]
                             where x.Email == (string)Session["userName"]
                             select x).ToArray();
