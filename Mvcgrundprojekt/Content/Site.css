@@ -9,19 +9,6 @@
 /* Innehåll */
 /* ------------------------------------------------------ */
 
-.search-for-products-text {
-    color: #000;
-}
-
-.search-for-products {
-    color: #000;
-}
-
-ul
-{
-    list-style-type: none;
-}
-
 .content-section {
     overflow-x: hidden;
     padding-top: 100px;
@@ -57,18 +44,6 @@ p {
     margin: 0 0 25px;
     font-size: 18px;
     line-height: 1.5;
-}
-
-/*#products-container {
-    padding-left: 10%;
-}*/
-
-/* ------------------------------------------------------ */
-/* Sätter texten längst upp åt vänster så den blir lite smalare */
-/* ------------------------------------------------------ */
-
-.light {
-    font-weight: 400;
 }
 
 /* ------------------------------------------------------ */
@@ -112,6 +87,11 @@ h6 {
     letter-spacing: 1px;
 }
 
+/* Sätter texten längst upp åt vänster så den blir lite smalare */
+.light {
+    font-weight: 400;
+}
+
 @media(min-width:768px) {
     p {
         margin: 0 0 35px;
@@ -124,8 +104,6 @@ h6 {
 /* ------------------------------------------------------ */
 /* Hyperlänkarnas design */
 /* ------------------------------------------------------ */
-
-
 
 #view-cart-nav:hover, #view-cart-nav:focus {
     text-decoration: none;
@@ -157,7 +135,7 @@ a:focus {
 }
 
 /* ------------------------------------------------------ */
-/* Navigation design - Nav default kan se ut */
+/* Navigation design - Nav'en i olika format */
 /* ------------------------------------------------------ */
 
 .navbar-default {
@@ -239,99 +217,12 @@ a:focus {
     }
 }
 
-/* ------------------------------------------------------ */
-/* Navigation design - hämtad från hemsida */
-/* ------------------------------------------------------ */
-
-/*.navbar-custom {
-    margin-bottom: 0;
-    border-bottom: 1px solid rgba(255,255,255,.3);
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: #000000;
-}
-
-.navbar-custom .navbar-brand {
-    font-weight: 700;
-}
-
-.navbar-custom .navbar-brand:focus {
-    outline: 0;
-}
-
-.navbar-custom .navbar-brand .navbar-toggle {
-    padding: 4px 6px;
-    font-size: 16px;
-    color: #ffffff;
-}
-
-.navbar-custom .navbar-brand .navbar-toggle:focus,
-.navbar-custom .navbar-brand .navbar-toggle:active {
-    outline: 0;
-}
-
-.navbar-custom a {
-    color: #ffffff;
-}
-
-.navbar-custom .nav li a {
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
-}
-
-.navbar-custom .nav li a:hover {
-    outline: 0;
-    color: rgba(255,255,255,.8);
-    background-color: transparent;
-}
-
-.navbar-custom .nav li a:focus,
-.navbar-custom .nav li a:active {
-    outline: 0;
-    background-color: transparent;
-}
-
-.navbar-custom .nav li.active {
-    outline: 0;
-}
-
-.navbar-custom .nav li.active a {
-    background-color: rgba(255,255,255,.3);
-}
-
-.navbar-custom .nav li.active a:hover {
-    color: #ffffff;
-}*/
-
 /*Ändrar färgen på den lilla pilen*/
 
 .caret {
     border-top-color: #ffffff !important;
     border-bottom-color: #ffffff !important;
 }
-/* ----------------------------------------------------------------  */
-/* Ger den coola effekten i NAV-baren, @media för olika upplösningar */
-/* Ta bort den och det blir svart hela tiden, funkar också            */
-/* ----------------------------------------------------------------  */
-
-/*@media(min-width:768px) {
-    .navbar-custom {
-        padding: 20px 0;
-        border-bottom: 0;
-        letter-spacing: 1px;
-        background: 0 0;
-        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        transition: background .5s ease-in-out,padding .5s ease-in-out;
-    }
-
-    .navbar-custom.top-nav-collapse {
-        padding: 0;
-        border-bottom: 1px solid rgba(255,255,255,.3);
-        background: #000000;
-    }
-}*/
 
 /* ------------------------------------------------------ */
 /* Header = Intro design */
@@ -525,6 +416,11 @@ only screen and (max-width: 760px),
     /*width: 40%;*/
 }
 
+ul
+{
+    list-style-type: none;
+}
+
 /* ------------------------------------------------------ */
 /* Section View shoppingcart  */
 /* ------------------------------------------------------ */
@@ -588,6 +484,14 @@ only screen and (max-width: 760px),
 /* Section Webshop  */
 /* ------------------------------------------------------ */
 
+.search-for-products-text {
+    color: #000;
+}
+
+.search-for-products {
+    color: #000;
+}
+
 .webshop-header {
     color: #ffffff;
 }
@@ -613,7 +517,7 @@ only screen and (max-width: 760px),
 }
 
 #add-to-shoppingcart-btn {
-    margin-top: 30px;
+    margin-top: 5px;
     margin-bottom: 20px;
 }
 
