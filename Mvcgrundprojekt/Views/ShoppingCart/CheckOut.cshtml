@@ -7,7 +7,7 @@
     <section class="checkout-section">
         <div class="container">
             <h2 class="checkout-header">Checkout</h2>
-
+            <hr /><br />
 
             @*/* ------------------------------------------------------ */
         /* Här kommer användarinformationen innan checkout */
@@ -16,7 +16,7 @@
 
             <center><h3>User Info</h3></center>
 
-
+            
             @foreach (var item in Model.Take(1))
             {
                 <div class="col-lg-12 text-center">
@@ -28,9 +28,10 @@
                     @Html.DisplayFor(modelItem => item.Email)<br />
                 </div>
             }
-            <br /><br /><br />
             <hr />
             <br /><br /><br /><br />
+            <hr />
+            <br />
 
 
             <div class="text-right" style="margin-right:10%">
