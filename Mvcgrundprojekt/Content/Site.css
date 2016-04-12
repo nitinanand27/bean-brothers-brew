@@ -688,9 +688,18 @@ footer p {
     margin: 0;
 }
 
+/* ------------------------------------------------------ */
+/* Only select footer element +  copywrite of the register page */
+/* ------------------------------------------------------ */
 
 
+#page-top > div > footer {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+}
 
-
-
-
+#page-top > div > footer > div > p {
+    color: white;
+    background: hsla(0, 0%, 100%, 0.00);
+    text-shadow: 1px 1px black, 2px 2px black;
+}
