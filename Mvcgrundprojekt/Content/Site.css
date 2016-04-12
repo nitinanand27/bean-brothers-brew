@@ -390,6 +390,7 @@ a:focus {
 }
 
 
+
 /* ------------------------------------------------------ */
 /* Test-tabell  */
 /* ------------------------------------------------------ */
@@ -568,7 +569,7 @@ only screen and (max-width: 760px),
 }
 
 /* ------------------------------------------------------ */
-/* Section Finished-register  */
+/* Section Checkout-section */
 /* ------------------------------------------------------ */
 
 .checkout-section-body {
@@ -599,6 +600,17 @@ only screen and (max-width: 760px),
 #checkout-btn {
     margin-top: 5%;
     margin-bottom: 5%;
+    border: 1px solid #36a82a !important;
+    outline: 0 !important;
+    color: #ffffff !important;
+    background-color: transparent !important;
+}
+
+#checkout-btn:hover, #checkout-btn:focus {
+    border: 1px solid #36a82a !important;
+    outline: 0 !important;
+    color: #ffffff !important;
+    background-color: #36a82a !important;
 }
 
 /* ------------------------------------------------------ */

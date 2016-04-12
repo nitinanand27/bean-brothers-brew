@@ -9,10 +9,9 @@
             <h2 class="checkout-header">Checkout</h2>
             <hr /><br />
 
-            @*/* ------------------------------------------------------ */
+      @*/* ------------------------------------------------------ */
         /* Här kommer användarinformationen innan checkout */
         /* ------------------------------------------------------ */*@
-
 
             <center><h3>User Info</h3></center>
 
@@ -33,6 +32,9 @@
             <hr />
             <br />
 
+      @*/* ------------------------------------------------------ */
+        /* Början av checkout varorna */
+        /* ------------------------------------------------------ */*@
 
             <div class="text-right" style="margin-right:10%">
                 Total cost: @Session["totalPrice"] &dollar;
@@ -82,6 +84,9 @@
                 }
             </table>
             <hr />
+            <div class="text-right" style="margin-right:10%">
+                Total cost: @Session["totalPrice"] &dollar;
+            </div>
                 <center><a href="/ShoppingCart/CompletedOrder" class="btn btn-default btn-lg" id="checkout-btn">Confirm Payment</a></center>
             </div>
     </section>
